@@ -3,16 +3,16 @@
 </script>
 
 <footer
-	class="mt-auto border-t border-gray-200 bg-white py-6 dark:border-gray-800 dark:bg-gray-950"
+	class="mt-auto border-t border-white/20 bg-white/40 py-8 backdrop-blur-md dark:border-white/10 dark:bg-white/5"
 >
 	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="flex flex-col items-center justify-between gap-4 md:flex-row md:items-start">
 			<div class="text-center md:text-left">
-				<p class="text-lg font-semibold text-gray-900 dark:text-white">Be relentless.</p>
-				<p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+				<p class="text-lg font-semibold text-neutral-900 dark:text-white">Be relentless.</p>
+				<p class="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
 					If you have an idea, let's get in contact.
 				</p>
-				<p class="mt-2 text-xs text-gray-500 dark:text-gray-500">
+				<p class="mt-2 text-xs text-neutral-500 dark:text-neutral-500">
 					&copy; {year} Charlie Kerfoot. All rights reserved.
 				</p>
 			</div>
@@ -20,7 +20,7 @@
 			<div class="flex gap-6">
 				<a
 					href="mailto:charliekerfoot@gmail.com"
-					class="text-gray-500 transition-colors hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+					class="text-neutral-500 transition-colors hover:text-slate-600 dark:text-neutral-400 dark:hover:text-slate-400"
 					aria-label="Email"
 				>
 					<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -36,7 +36,7 @@
 					href="https://linkedin.com/in/ckerf"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="text-gray-500 transition-colors hover:text-blue-700 dark:text-gray-400 dark:hover:text-blue-500"
+					class="text-neutral-500 transition-colors hover:text-slate-700 dark:text-neutral-400 dark:hover:text-slate-500"
 					aria-label="LinkedIn"
 				>
 					<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -49,7 +49,7 @@
 					href="https://github.com/charliekerfoot"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="text-gray-500 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+					class="text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"
 					aria-label="GitHub"
 				>
 					<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -64,7 +64,7 @@
 					href="https://twitter.com/charliekerfoot"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="text-gray-500 transition-colors hover:text-blue-400 dark:text-gray-400 dark:hover:text-blue-300"
+					class="text-neutral-500 transition-colors hover:text-slate-400 dark:text-neutral-400 dark:hover:text-slate-300"
 					aria-label="Twitter"
 				>
 					<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">

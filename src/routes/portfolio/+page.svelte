@@ -1,145 +1,80 @@
 <script lang="ts">
-	import { onMount, onDestroy } from 'svelte';
-	import * as THREE from 'three';
-	import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
-	import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js';
-	import { Footer } from '$lib';
+	import { onMount } from 'svelte';
 
-	let container: HTMLDivElement;
-	let renderer: THREE.WebGLRenderer;
-	let scene: THREE.Scene;
-	let camera: THREE.PerspectiveCamera;
-	let textMesh: THREE.Mesh;
-	let animationId: number;
-	let observer: MutationObserver;
+	let scrollContainer: HTMLElement;
 
 	onMount(() => {
-		init();
-		animate();
-		setupThemeObserver();
-	});
-
-	onDestroy(() => {
-		if (typeof window !== 'undefined') {
-			window.removeEventListener('resize', onWindowResize);
-			cancelAnimationFrame(animationId);
-			if (renderer) renderer.dispose();
-			if (observer) observer.disconnect();
-		}
-	});
-
-	function setupThemeObserver() {
-		const updateTheme = () => {
-			if (!scene) return;
-			const isDark = document.documentElement.classList.contains('dark');
-			// Dark: gray-950 (0x030712 - tailwind v4 or 0x111827 - v3), Light: gray-50 (0xf9fafb)
-			// Using the values from app.html/css context if possible, or standard tailwind colors.
-			// Previous dark was 0x111827. Let's stick to that for dark.
-			// Light mode background: 0xf9fafb
-			const targetColor = isDark ? 0x111827 : 0xf9fafb;
-			scene.background = new THREE.Color(targetColor);
-		};
-
-		// Initial check
-		updateTheme();
-
-		// Observer
-		observer = new MutationObserver(updateTheme);
-		observer.observe(document.documentElement, {
-			attributes: true,
-			attributeFilter: ['class']
-		});
-	}
-
-	function init() {
-		// Scene
-		scene = new THREE.Scene();
-		// Background set by setupThemeObserver immediately after init
-
-		// Camera
-		camera = new THREE.PerspectiveCamera(
-			45,
-			container.clientWidth / container.clientHeight,
-			1,
-			10000
-		);
-		camera.position.set(0, 0, 600);
-
-		// Lights
-		const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
-		scene.add(ambientLight);
-
-		const dirLight = new THREE.DirectionalLight(0xffffff, 1);
-		dirLight.position.set(100, 200, 100);
-		scene.add(dirLight);
-
-		// Renderer
-		renderer = new THREE.WebGLRenderer({ antialias: true });
-		renderer.setPixelRatio(window.devicePixelRatio);
-		renderer.setSize(container.clientWidth, container.clientHeight);
-		container.appendChild(renderer.domElement);
-
-		// Load Font and Create Text
-		const loader = new FontLoader();
-		loader.load(
-			'https://threejs.org/examples/fonts/helvetiker_bold.typeface.json',
-			function (font) {
-				const geometry = new TextGeometry('Under Construction', {
-					font: font,
-					size: 40,
-					curveSegments: 12,
-					bevelEnabled: true,
-					bevelThickness: 2,
-					bevelSize: 1,
-					bevelOffset: 0,
-					bevelSegments: 5
-				});
-
-				geometry.computeBoundingBox();
-				const xMid = -0.5 * (geometry.boundingBox!.max.x - geometry.boundingBox!.min.x);
-				geometry.translate(xMid, 0, 0);
-
-				const material = new THREE.MeshStandardMaterial({
-					color: 0x3b82f6, // Blue-500
-					roughness: 0.4,
-					metalness: 0.3
-				});
-
-				textMesh = new THREE.Mesh(geometry, material);
-				scene.add(textMesh);
+		const handleWheel = (e: WheelEvent) => {
+			if (scrollContainer) {
+				e.preventDefault();
+				scrollContainer.scrollLeft += e.deltaY;
 			}
-		);
+		};
+		window.addEventListener('wheel', handleWheel, { passive: false });
+		return () => window.removeEventListener('wheel', handleWheel);
+	});
 
-		window.addEventListener('resize', onWindowResize);
-	}
-
-	function onWindowResize() {
-		if (!container || !camera || !renderer) return;
-		camera.aspect = container.clientWidth / container.clientHeight;
-		camera.updateProjectionMatrix();
-		renderer.setSize(container.clientWidth, container.clientHeight);
-	}
-
-	function animate() {
-		animationId = requestAnimationFrame(animate);
-		if (textMesh) {
-			textMesh.rotation.y += 0.01;
-			textMesh.rotation.x = Math.sin(Date.now() * 0.001) * 0.1;
-		}
-		if (renderer && scene && camera) {
-			renderer.render(scene, camera);
-		}
-	}
+	let projects = [
+		{
+			title: 'Work in Progress',
+			description: 'This section is still under construction',
+			tags: ['CHECK', 'BACK', 'SOON'],
+			link: ''
+		},
+	];
 </script>
 
-<div class="flex min-h-screen flex-col">
-	<div class="relative flex-1" bind:this={container}>
-		<!-- Back Button -->
-
-		<div class="pointer-events-none absolute inset-0 flex items-end justify-center pb-12">
-			<p class="text-sm text-gray-400">
-				This 3D experience is currently being built. Check back soon!
-			</p>
+<div class="fixed inset-0 flex items-center overflow-hidden bg-neutral-50 dark:bg-neutral-950">
+	<div
+		bind:this={scrollContainer}
+		class="flex h-full w-full items-center gap-8 md:gap-16 overflow-x-auto px-4 md:px-[20vw] pb-12 pt-32 scrollbar-hide"
+	>
+		<div class="flex-shrink-0">
+			<h1 class="text-6xl md:text-9xl font-black writing-vertical-rl rotate-180 text-neutral-900 dark:text-white">
+				WORK
+			</h1>
 		</div>
+
+		{#each projects as project, i}
+			<a
+				href={project.link}
+				class="group relative flex h-[50vh] md:h-[60vh] w-[85vw] md:w-[40vw] flex-shrink-0 flex-col justify-between border-2 border-neutral-900 bg-white p-6 md:p-8 transition-all hover:bg-neutral-900 hover:text-white dark:border-white dark:bg-neutral-900 dark:hover:bg-white dark:hover:text-neutral-900"
+			>
+				<div class="flex justify-between border-b-2 border-current pb-4">
+					<span class="font-mono text-lg md:text-xl">0{i + 1}</span>
+					<span class="font-mono text-lg md:text-xl">2024</span>
+				</div>
+
+				<div class="space-y-4">
+					<h2 class="text-4xl md:text-5xl font-bold uppercase leading-none tracking-tighter font-display">{project.title}</h2>
+					<p class="max-w-md font-mono text-xs md:text-sm leading-relaxed opacity-70">
+						{project.description}
+					</p>
+				</div>
+
+				<div class="flex flex-wrap gap-2">
+					{#each project.tags as tag}
+						<span class="border border-current px-2 py-1 md:px-3 md:py-1 font-mono text-[10px] md:text-xs uppercase tracking-widest">
+							{tag}
+						</span>
+					{/each}
+				</div>
+			</a>
+		{/each}
+		
+		<div class="flex-shrink-0 w-4 md:w-[20vw]"></div>
 	</div>
 </div>
+
+<style>
+	.scrollbar-hide::-webkit-scrollbar {
+		display: none;
+	}
+	.scrollbar-hide {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+	.writing-vertical-rl {
+		writing-mode: vertical-rl;
+	}
+</style>

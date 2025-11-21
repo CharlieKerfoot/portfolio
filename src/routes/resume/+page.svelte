@@ -151,32 +151,32 @@
     ];
 </script>
 
-<div class="flex min-h-screen flex-col bg-gray-50 dark:bg-gray-950">
+<div class="flex min-h-screen flex-col">
     <div class="container mx-auto flex-1 px-4 py-16 sm:px-6 lg:px-8">
         <header class="mb-12">
             <div class="flex flex-col gap-12 lg:flex-row lg:items-center">
                 <div class="text-left lg:w-1/3">
                     <h1
-                        class="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl dark:text-white"
+                        class="mb-4 text-5xl font-bold tracking-tighter text-neutral-900 font-display sm:text-6xl dark:text-white"
                     >
                         Charlie Kerfoot
                     </h1>
-                    <p class="text-lg text-gray-600 dark:text-gray-400">
+                    <p class="text-lg text-neutral-600 dark:text-neutral-400">
                         Obsessive about creating value through software. Human beings are responsible for
                         shaping the future. Let's build the world that we want to live in. See my formal resume <a
                             href="https://drive.google.com/file/d/1m3CGEv5d5jszNlEW3egCz0OiHodfZ9Vw/view?usp=sharing"
-                            class="text-blue-600 hover:underline dark:text-blue-400"
+                            class="text-slate-600 hover:underline dark:text-slate-400"
                             target="_blank">here</a
                         >.
                     </p>
                 </div>
                 <div class="flex items-center justify-center lg:w-2/3">
                     <h3
-                        class="text-center font-serif text-2xl leading-relaxed text-gray-800 italic lg:text-3xl dark:text-gray-200"
+                        class="text-center font-serif text-2xl leading-relaxed text-neutral-800 italic lg:text-4xl dark:text-neutral-200"
                     >
                         "In the cosmic blink of an eye, I will become once again cosmic dust."
                         <span
-                            class="mt-2 block text-base font-normal text-gray-500 not-italic dark:text-gray-400"
+                            class="mt-2 block text-base font-normal text-neutral-500 not-italic dark:text-neutral-400"
                             >- Bangambiki Habyarimana</span
                         >
                     </h3>
@@ -185,19 +185,19 @@
         </header>
 
         <div class="mb-12 flex justify-center">
-            <div class="relative inline-flex rounded-full bg-gray-200 p-1 dark:bg-gray-800">
+            <div class="relative inline-flex rounded-full bg-neutral-200 p-1 dark:bg-neutral-800">
                 {#each tabs as tab}
                     <button
                         onclick={() => (activeTab = tab)}
                         class="relative z-10 rounded-full px-6 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none {activeTab ===
                         tab
-                            ? 'text-gray-900 dark:text-white'
-                            : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'}"
+                            ? 'text-neutral-900 dark:text-white'
+                            : 'text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200'}"
                     >
                         {tab}
                         {#if activeTab === tab}
                             <div
-                                class="absolute inset-0 -z-10 rounded-full bg-white shadow-sm transition-all duration-300 dark:bg-gray-700"
+                                class="absolute inset-0 -z-10 rounded-full bg-white shadow-sm transition-all duration-300 dark:bg-neutral-700"
                                 in:fade={{ duration: 200 }}
                             ></div>
                         {/if}
@@ -216,28 +216,28 @@
                     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                         {#each projects as project}
                             <div
-                                class="group rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-md dark:border-gray-800 dark:bg-gray-900"
+                                class="group rounded-2xl border border-white/20 bg-white/40 p-6 shadow-sm backdrop-blur-md transition-all hover:-translate-y-1 hover:border-slate-400/50 hover:shadow-xl dark:border-white/10 dark:bg-white/5 dark:hover:border-white/20"
                             >
                                 {#if project.link}
                                     <a href="{project.link}" target="_blank">
                                     <h3
-                                        class="mb-2 text-lg font-bold text-gray-900 group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400"
+                                        class="mb-2 text-lg font-bold text-neutral-900 group-hover:text-slate-600 dark:text-white dark:group-hover:text-slate-400"
                                     >
                                         {project.title}
                                     </h3>
                                 </a>
                                 {:else}
                                 <h3
-                                    class="mb-2 text-lg font-bold text-gray-900 group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400"
+                                    class="mb-2 text-lg font-bold text-neutral-900 group-hover:text-slate-600 dark:text-white dark:group-hover:text-slate-400"
                                 >
                                     {project.title}
                                 </h3>
                                 {/if}
-                                <p class="mb-4 text-sm text-gray-600 dark:text-gray-400">{project.description}</p>
+                                <p class="mb-4 text-sm text-neutral-600 dark:text-neutral-400">{project.description}</p>
                                 <div class="flex flex-wrap gap-2">
                                     {#each project.tags as tag}
                                         <span
-                                            class="rounded-md bg-gray-100 px-2 py-1 text-xs font-medium text-gray-600 dark:bg-gray-800 dark:text-gray-300"
+                                            class="rounded-md bg-neutral-100 px-2 py-1 text-xs font-medium text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300"
                                         >
                                             {tag}
                                         </span>
@@ -254,23 +254,23 @@
                     class="space-y-12"
                 >
                     <section>
-                        <h2 class="mb-6 text-2xl font-bold text-gray-900 dark:text-white">Work Experience</h2>
+                        <h2 class="mb-8 text-3xl font-bold text-neutral-900 font-display dark:text-white">Work Experience</h2>
                         <div class="space-y-8">
                             {#each experience as job}
-                                <div class="relative ml-3 border-l-2 border-gray-200 pl-8 dark:border-gray-800">
+                                <div class="relative ml-3 border-l border-neutral-200 pl-8 dark:border-neutral-800">
                                     <div
-                                        class="absolute top-0 -left-[9px] h-4 w-4 rounded-full bg-blue-600 ring-4 ring-white dark:ring-gray-950"
+                                        class="absolute top-0 -left-[5px] h-2.5 w-2.5 rounded-full bg-slate-600 ring-4 ring-white dark:ring-neutral-950"
                                     ></div>
                                     <div class="mb-2 flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">{job.company}</h3>
-                                        <span class="text-sm font-medium text-gray-500 dark:text-gray-400"
+                                        <h3 class="text-xl font-bold text-neutral-900 font-display dark:text-white">{job.company}</h3>
+                                        <span class="font-mono text-sm text-neutral-500 dark:text-neutral-400"
                                             >{job.date}</span
                                         >
                                     </div>
-                                    <div class="mb-4 text-lg font-medium text-blue-600 dark:text-blue-400">
+                                    <div class="mb-4 text-lg font-medium text-slate-600 dark:text-slate-400">
                                         {job.role}
                                     </div>
-                                    <ul class="list-disc space-y-2 pl-4 text-gray-600 dark:text-gray-400">
+                                    <ul class="list-disc space-y-2 pl-4 text-neutral-600 dark:text-neutral-400">
                                         {#each job.points as point}
                                             <li>{point}</li>
                                         {/each}
@@ -281,24 +281,24 @@
                     </section>
 
                     <section>
-                        <h2 class="mb-6 text-2xl font-bold text-gray-900 dark:text-white">Education</h2>
+                        <h2 class="mb-8 text-3xl font-bold text-neutral-900 font-display dark:text-white">Education</h2>
                         <div class="space-y-8">
                             {#each education as edu}
                                 <div
-                                    class="rounded-xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900"
+                                    class="rounded-2xl border border-white/20 bg-white/40 p-8 backdrop-blur-md dark:border-white/10 dark:bg-white/5"
                                 >
                                     <div class="flex flex-col justify-between gap-2 sm:flex-row sm:items-start">
                                         <div>
-                                            <h3 class="text-lg font-bold text-gray-900 dark:text-white">{edu.school}</h3>
-                                            <p class="text-blue-600 dark:text-blue-400">{edu.degree}</p>
+                                            <h3 class="text-xl font-bold text-neutral-900 font-display dark:text-white">{edu.school}</h3>
+                                            <p class="text-slate-600 dark:text-slate-400">{edu.degree}</p>
                                         </div>
-                                        <div class="text-right text-sm text-gray-500 dark:text-gray-400">
+                                        <div class="text-right text-sm text-neutral-500 dark:text-neutral-400">
                                             <p>{edu.date}</p>
                                             <p>{edu.location}</p>
                                         </div>
                                     </div>
                                     {#if edu.details.length > 0}
-                                        <ul class="mt-4 list-disc pl-4 text-sm text-gray-600 dark:text-gray-400">
+                                        <ul class="mt-4 list-disc pl-4 text-sm text-neutral-600 dark:text-neutral-400">
                                             {#each edu.details as detail}
                                                 <li>{detail}</li>
                                             {/each}
@@ -313,12 +313,12 @@
                 <div in:fly={{ y: 20, duration: 300, delay: 100 }} out:fade={{ duration: 100 }}>
                     <div class="space-y-6">
                         {#each skillCategories as category}
-                            <div class="rounded-2xl bg-white p-8 shadow-sm dark:bg-gray-900">
-                                <h2 class="mb-6 text-2xl font-bold text-gray-900 dark:text-white">{category.name}</h2>
+                            <div class="rounded-2xl border border-white/20 bg-white/40 p-8 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-white/5">
+                                <h2 class="mb-6 text-2xl font-bold text-neutral-900 font-display dark:text-white">{category.name}</h2>
                                 <div class="flex flex-wrap gap-3">
                                     {#each category.skills as skill}
                                         <span
-                                            class="rounded-full bg-gray-100 px-4 py-2 text-base font-medium text-gray-700 transition-colors hover:bg-blue-100 hover:text-blue-700 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-blue-900/30 dark:hover:text-blue-400"
+                                            class="rounded-full bg-neutral-100 px-4 py-2 text-base font-medium text-neutral-700 transition-colors hover:bg-slate-100 hover:text-slate-700 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-slate-900/30 dark:hover:text-slate-400"
                                         >
                                             {skill}
                                         </span>
@@ -330,11 +330,11 @@
                 </div>
             {:else if activeTab === 'Interests'}
                 <div in:fly={{ y: 20, duration: 300, delay: 100 }} out:fade={{ duration: 100 }}>
-                    <div class="rounded-2xl bg-white p-8 shadow-sm dark:bg-gray-900">
-                        <h2 class="mb-6 text-2xl font-bold text-gray-900 dark:text-white">
+                    <div class="rounded-2xl border border-white/20 bg-white/40 p-8 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-white/5">
+                        <h2 class="mb-6 text-2xl font-bold text-neutral-900 font-display dark:text-white">
                             Interests & Activities
                         </h2>
-                        <ul class="list-disc space-y-2 pl-4 text-gray-700 dark:text-gray-300">
+                        <ul class="list-disc space-y-2 pl-4 text-neutral-700 dark:text-neutral-300">
                             {#each interests as interest}
                                 <li class="text-lg">{interest}</li>
                             {/each}

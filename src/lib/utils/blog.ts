@@ -4,7 +4,7 @@ export interface BlogPost {
     description: string;
     date: string;
     tags: string[];
-    content?: any; // Svelte component
+    content?: any;
 }
 
 export const fetchPosts = async (): Promise<BlogPost[]> => {
@@ -30,7 +30,6 @@ export const fetchPosts = async (): Promise<BlogPost[]> => {
 
 export const getFeaturedPost = (posts: BlogPost[]): BlogPost | null => {
     if (posts.length === 0) return null;
-    // Deterministic random based on date
     const today = new Date().toDateString();
     let hash = 0;
     for (let i = 0; i < today.length; i++) {

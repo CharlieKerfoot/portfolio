@@ -4,7 +4,6 @@
 	let isDark = $state(false);
 
 	onMount(() => {
-		// Initialize state based on document class
 		isDark = document.documentElement.classList.contains('dark');
 	});
 
@@ -22,7 +21,7 @@
 
 <button
 	onclick={toggleTheme}
-	class="flex h-8 w-16 items-center rounded-full bg-gray-200 p-1 shadow-lg transition-colors focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none dark:bg-gray-700"
+	class="flex h-8 w-16 items-center rounded-full bg-neutral-200 p-1 shadow-lg transition-colors focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 focus:outline-none dark:bg-neutral-700"
 	aria-label="Toggle Dark Mode"
 >
 	<span
@@ -31,14 +30,13 @@
 			: 'translate-x-0'}"
 	>
 		{#if isDark}
-			<!-- Moon Icon -->
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				fill="none"
 				viewBox="0 0 24 24"
 				stroke-width="2"
 				stroke="currentColor"
-				class="h-4 w-4 text-gray-700"
+				class="h-4 w-4 text-neutral-700"
 			>
 				<path
 					stroke-linecap="round"
@@ -47,14 +45,13 @@
 				/>
 			</svg>
 		{:else}
-			<!-- Sun Icon -->
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				fill="none"
 				viewBox="0 0 24 24"
 				stroke-width="2"
 				stroke="currentColor"
-				class="h-4 w-4 text-yellow-500"
+				class="h-4 w-4 text-neutral-400"
 			>
 				<path
 					stroke-linecap="round"
