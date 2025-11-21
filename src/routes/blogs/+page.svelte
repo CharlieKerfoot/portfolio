@@ -46,7 +46,6 @@
 				<h1 class="text-3xl font-bold text-gray-900 dark:text-white">Best Foot Forward</h1>
 				<p class="text-gray-600 dark:text-gray-400">Thoughts on life and code</p>
 			</div>
-			<a href="/" class="text-blue-600 hover:underline dark:text-blue-400">Back to Home</a>
 		</header>
 
 		<div class="grid gap-8 lg:grid-cols-12">
@@ -137,28 +136,48 @@
 					</section>
 				{:else}
 					<!-- Default View -->
-					{#if data.posts.length > 0}
-						<!-- Newest Blog -->
-						<section>
-							<h2 class="mb-6 text-2xl font-bold text-gray-900 dark:text-white">Newest</h2>
+					{#if data.featured}
+						<!-- Featured Blog (Minimalist Tech Style) -->
+						<section class="mb-12">
+							<h2 class="mb-6 text-2xl font-bold text-gray-900 dark:text-white">Featured Today</h2>
 							<a
-								href="/blogs/{data.posts[0].slug}"
-								class="group relative block overflow-hidden rounded-2xl bg-blue-600 text-white shadow-xl transition-transform hover:-translate-y-1"
+								href="/blogs/{data.featured.slug}"
+								class="group relative block overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all hover:border-blue-500/50 hover:shadow-xl dark:border-gray-800 dark:bg-gray-900"
 							>
+								<!-- Dot Pattern Background -->
+								<div
+									class="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]"
+									style="background-image: radial-gradient(#6b7280 1px, transparent 1px); background-size: 24px 24px;"
+								></div>
+
 								<div class="relative z-10 p-8 sm:p-12">
-									<div class="mb-4 flex items-center gap-2 text-blue-100">
+									<div class="mb-6 flex items-center gap-3">
 										<span
-											class="rounded-full bg-white/20 px-3 py-1 text-sm font-medium backdrop-blur-sm"
-											>New</span
+											class="inline-flex items-center rounded-md border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 dark:border-blue-800 dark:bg-blue-900/30 dark:text-blue-300"
 										>
-										<time>{data.posts[0].date}</time>
+											FEATURED
+										</span>
+										<time class="font-mono text-sm text-gray-500 dark:text-gray-400"
+											>{data.featured.date}</time
+										>
 									</div>
-									<h3 class="mb-4 text-3xl font-bold sm:text-4xl">{data.posts[0].title}</h3>
-									<p class="mb-6 max-w-2xl text-lg text-blue-100">{data.posts[0].description}</p>
-									<span class="inline-flex items-center font-semibold group-hover:underline">
+
+									<h3
+										class="mb-4 text-3xl font-bold text-gray-900 group-hover:text-blue-600 sm:text-4xl dark:text-white dark:group-hover:text-blue-400"
+									>
+										{data.featured.title}
+									</h3>
+
+									<p class="mb-8 max-w-2xl text-lg text-gray-600 dark:text-gray-400">
+										{data.featured.description}
+									</p>
+
+									<div
+										class="inline-flex items-center text-sm font-semibold text-blue-600 transition-colors group-hover:text-blue-700 dark:text-blue-400 dark:group-hover:text-blue-300"
+									>
 										Read Article
 										<svg
-											class="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1"
+											class="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"
 											fill="none"
 											viewBox="0 0 24 24"
 											stroke="currentColor"
@@ -170,38 +189,34 @@
 												d="M17 8l4 4m0 0l-4 4m4-4H3"
 											/>
 										</svg>
-									</span>
+									</div>
 								</div>
-								<!-- Decorative background pattern -->
-								<div
-									class="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-700 opacity-90"
-								></div>
 							</a>
 						</section>
 					{/if}
 
-					{#if data.featured}
-						<!-- Featured Blog -->
+					{#if data.posts.length > 0}
+						<!-- Newest Blog (Standard Style) -->
 						<section>
-							<h2 class="mb-6 text-2xl font-bold text-gray-900 dark:text-white">Featured Today</h2>
+							<h2 class="mb-6 text-2xl font-bold text-gray-900 dark:text-white">Newest</h2>
 							<a
-								href="/blogs/{data.featured.slug}"
+								href="/blogs/{data.posts[0].slug}"
 								class="group block overflow-hidden rounded-xl border border-gray-200 bg-white transition-all hover:shadow-lg dark:border-gray-800 dark:bg-gray-900"
 							>
 								<div class="p-8">
 									<div class="mb-4 flex items-center gap-2 text-sm text-gray-500">
 										<span
-											class="rounded-full bg-yellow-100 px-3 py-1 text-xs font-medium text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300"
-											>Featured</span
+											class="rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-800 dark:bg-blue-900/30 dark:text-blue-300"
+											>New</span
 										>
-										<time>{data.featured.date}</time>
+										<time>{data.posts[0].date}</time>
 									</div>
 									<h3
 										class="mb-4 text-2xl font-bold text-gray-900 group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400"
 									>
-										{data.featured.title}
+										{data.posts[0].title}
 									</h3>
-									<p class="text-gray-600 dark:text-gray-400">{data.featured.description}</p>
+									<p class="text-gray-600 dark:text-gray-400">{data.posts[0].description}</p>
 								</div>
 							</a>
 						</section>

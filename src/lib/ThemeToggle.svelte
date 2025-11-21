@@ -22,7 +22,7 @@
 
 <button
 	onclick={toggleTheme}
-	class="fixed right-6 bottom-6 z-50 flex h-8 w-16 items-center rounded-full bg-gray-200 p-1 shadow-lg transition-colors focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none dark:bg-gray-700"
+	class="flex h-8 w-16 items-center rounded-full bg-gray-200 p-1 shadow-lg transition-colors focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none dark:bg-gray-700"
 	aria-label="Toggle Dark Mode"
 >
 	<span
