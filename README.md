@@ -1,13 +1,13 @@
-# Blogs, 3D Portfolio, Resume
+# Blogs, Projects, Resume
 
-My website containing my blog posts, a 3D portfolio, and a resume page. I want to start writing a blog post about every month on all things life, philosophy, and ML.
+My website containing my blog posts, projects/experiments, and a resume page. I want to start writing a blog post about every month on all things life, philosophy, and ML.
 
 See it here: https://charliekerfoot.com
 
 ## TODO
 
-- [ ] Work on Blogs
-- [ ] Finish 3D Portfolio
+- [ ] Write 1+ blog
+- [ ] Build out projects page
 
 ## Contact Me
 
