@@ -71,6 +71,13 @@
             link: 'https://charliekerfoot.github.io/'
         },
         {
+            title: 'Rust Web Server from Scratch',
+            description:
+                'A HTTP Web Server built out in Rust.',
+            tags: ['Rust', 'HTTP', 'HTML', 'Backend'],
+            link: 'https://github.com/CharlieKerfoot/web-server-rust'
+        },
+        {
             title: 'Kruskal\'s Algorithm Implementation',
             description:
                 'An implementation of Kruskal\'s algorithm in C.',
