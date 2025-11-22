@@ -42,6 +42,7 @@
             description:
                 'Password Manager hosted on a local Raspberry Pi with a Rust webserver and a Svelte interface.',
             tags: ['Rust', 'Svelte', 'Raspberry Pi', 'Security'],
+            link: 'https://github.com/charliekerfoot/pw-manager'
         },
         {
             title: 'Maze Algorithm Visualization',
