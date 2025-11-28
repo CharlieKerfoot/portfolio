@@ -64,7 +64,8 @@
 			title: 'Gemini 3 File Manager Agent',
 			description:
 				'A CLI-based AI agent that helps you manage your files and directories using natural language commands.',
-			tags: ['AI Agents', 'LLMs', 'Gemini 3', 'Python']
+			tags: ['AI Agents', 'LLMs', 'Gemini 3', 'Python'],
+			link: 'https://github.com/charliekerfoot/file-manager-agent'
 		},
 		{
 			title: 'Code Executer MCP Server',
