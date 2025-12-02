@@ -165,188 +165,196 @@
 	];
 </script>
 
-<div class="flex min-h-screen flex-col">
-	<div class="container mx-auto flex-1 px-4 py-16 sm:px-6 lg:px-8">
-		<header class="mb-12">
-			<div class="flex flex-col gap-12 lg:flex-row lg:items-center">
-				<div class="text-left lg:w-1/3">
+<div class="flex min-h-screen flex-col bg-neutral-50 dark:bg-neutral-950">
+	<div class="container mx-auto flex-1 px-4 py-8 sm:px-6 lg:px-8">
+		<header class="mb-20">
+			<div class="grid gap-12 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
+				<!-- Left Side: Name & Bio -->
+				<div class="flex flex-col gap-6">
 					<h1
-						class="font-display mb-4 text-5xl font-bold tracking-tighter text-neutral-900 sm:text-6xl dark:text-white"
+						class="font-display text-6xl font-black uppercase tracking-tighter text-neutral-900 dark:text-white sm:text-7xl"
 					>
-						Charlie Kerfoot
+						Charlie<br />Kerfoot
 					</h1>
-					<p class="text-lg text-neutral-600 dark:text-neutral-400">
+					<p class="font-mono text-lg leading-relaxed text-neutral-800 dark:text-neutral-200 max-w-md">
 						Obsessive about creating value through software. Human beings are responsible for
-						shaping the future. Let's build the world that we want to live in. See my formal resume <a
+						shaping the future. Let's build the world that we want to live in. Check out my
+						<a
 							href="https://drive.google.com/file/d/1m3CGEv5d5jszNlEW3egCz0OiHodfZ9Vw/view?usp=sharing"
-							class="text-slate-600 hover:underline dark:text-slate-400"
-							target="_blank">here</a
-						>.
+							class="inline-flex items-center gap-1 text-neutral-900 underline decoration-2 underline-offset-3 hover:text-neutral-600 dark:text-white dark:hover:text-neutral-300"
+							target="_blank"
+						>
+							Formal Resume
+						</a>.
 					</p>
 				</div>
-				<div class="flex items-center justify-center lg:w-2/3">
-					<h3
-						class="text-center font-serif text-2xl leading-relaxed text-neutral-800 italic lg:text-4xl dark:text-neutral-200"
+
+				<!-- Vertical Divider (Desktop only) -->
+				<div class="hidden h-full w-[2px] bg-neutral-900 dark:bg-white lg:block"></div>
+
+				<!-- Right Side: Quote -->
+				<div class="flex flex-col justify-center">
+					<blockquote
+						class="font-display text-3xl font-bold leading-tight uppercase text-neutral-900 dark:text-white sm:text-4xl"
 					>
 						"In the cosmic blink of an eye, I will become once again cosmic dust."
-						<span
-							class="mt-2 block text-base font-normal text-neutral-500 not-italic dark:text-neutral-400"
-							>- Bangambiki Habyarimana</span
-						>
-					</h3>
+					</blockquote>
+					<cite
+						class="mt-6 block font-mono text-xs font-bold tracking-widest uppercase text-neutral-500 dark:text-neutral-400"
+					>
+						— Bangambiki Habyarimana
+					</cite>
 				</div>
 			</div>
 		</header>
 
-		<div class="mb-12 flex justify-center">
-			<div class="relative inline-flex rounded-full bg-neutral-200 p-1 dark:bg-neutral-800">
+		<div class="mb-16">
+			<div class="flex flex-wrap gap-4">
 				{#each tabs as tab}
 					<button
 						onclick={() => (activeTab = tab)}
-						class="relative z-10 rounded-full px-6 py-2 text-sm font-medium transition-colors duration-200 focus:outline-none {activeTab ===
-						tab
-							? 'text-neutral-900 dark:text-white'
-							: 'text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200'}"
+						class="border-2 px-8 py-3 font-mono text-sm font-bold uppercase tracking-wider transition-all duration-200
+                        {activeTab === tab
+							? 'border-neutral-900 bg-neutral-900 text-white dark:border-white dark:bg-white dark:text-neutral-900'
+							: 'border-neutral-900 bg-transparent text-neutral-900 hover:bg-neutral-900 hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-neutral-900'}"
 					>
 						{tab}
-						{#if activeTab === tab}
-							<div
-								class="absolute inset-0 -z-10 rounded-full bg-white shadow-sm transition-all duration-300 dark:bg-neutral-700"
-								in:fade={{ duration: 200 }}
-							></div>
-						{/if}
 					</button>
 				{/each}
 			</div>
 		</div>
 
-		<div
-			class="mx-auto transition-all duration-300 {activeTab === 'Projects'
-				? 'max-w-6xl'
-				: 'max-w-4xl'}"
-		>
+		<div class="min-h-[50vh]">
 			{#if activeTab === 'Projects'}
 				<div in:fly={{ y: 20, duration: 300, delay: 100 }} out:fade={{ duration: 100 }}>
-					<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+					<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
 						{#each projects as project}
-							<div
-								class="group rounded-2xl border border-white/20 bg-white/40 p-6 shadow-sm backdrop-blur-md transition-all hover:-translate-y-1 hover:border-slate-400/50 hover:shadow-xl dark:border-white/10 dark:bg-white/5 dark:hover:border-white/20"
+							<a
+								href={project.link}
+								target={project.link ? '_blank' : ''}
+								class="group flex h-full flex-col justify-between border-2 border-neutral-900 bg-white p-6 transition-all hover:bg-neutral-50 dark:border-white dark:bg-neutral-950 dark:hover:bg-neutral-900"
 							>
-								{#if project.link}
-									<a href={project.link} target="_blank">
+								<div>
+									<div class="mb-4 flex items-start justify-between">
 										<h3
-											class="mb-2 text-lg font-bold text-neutral-900 group-hover:text-slate-600 dark:text-white dark:group-hover:text-slate-400"
+											class="font-display text-2xl font-bold leading-tight text-neutral-900 group-hover:underline dark:text-white"
 										>
 											{project.title}
 										</h3>
-									</a>
-								{:else}
-									<h3
-										class="mb-2 text-lg font-bold text-neutral-900 group-hover:text-slate-600 dark:text-white dark:group-hover:text-slate-400"
-									>
-										{project.title}
-									</h3>
-								{/if}
-								<p class="mb-4 text-sm text-neutral-600 dark:text-neutral-400">
-									{project.description}
-								</p>
+										{#if project.link}
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												viewBox="0 0 24 24"
+												fill="none"
+												stroke="currentColor"
+												stroke-width="2"
+												stroke-linecap="square"
+												stroke-linejoin="miter"
+												class="h-6 w-6 shrink-0 text-neutral-900 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 dark:text-white"
+											>
+												<line x1="7" y1="17" x2="17" y2="7"></line>
+												<polyline points="7 7 17 7 17 17"></polyline>
+											</svg>
+										{/if}
+									</div>
+									<p class="mb-6 font-mono text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
+										{project.description}
+									</p>
+								</div>
 								<div class="flex flex-wrap gap-2">
 									{#each project.tags as tag}
 										<span
-											class="rounded-md bg-neutral-100 px-2 py-1 text-xs font-medium text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300"
+											class="border border-neutral-900 px-2 py-1 font-mono text-xs font-bold uppercase text-neutral-900 dark:border-white dark:text-white"
 										>
 											{tag}
 										</span>
 									{/each}
 								</div>
-							</div>
+							</a>
 						{/each}
 					</div>
 				</div>
 			{:else if activeTab === 'Experience'}
-				<div
-					in:fly={{ y: 20, duration: 300, delay: 100 }}
-					out:fade={{ duration: 100 }}
-					class="space-y-12"
-				>
-					<section>
-						<h2 class="font-display mb-8 text-3xl font-bold text-neutral-900 dark:text-white">
-							Work Experience
-						</h2>
-						<div class="space-y-8">
-							{#each experience as job}
-								<div class="relative ml-3 border-l border-neutral-200 pl-8 dark:border-neutral-800">
-									<div
-										class="absolute top-0 -left-[5px] h-2.5 w-2.5 rounded-full bg-slate-600 ring-4 ring-white dark:ring-neutral-950"
-									></div>
-									<div class="mb-2 flex flex-col sm:flex-row sm:items-center sm:justify-between">
-										<h3 class="font-display text-xl font-bold text-neutral-900 dark:text-white">
-											{job.company}
-										</h3>
-										<span class="font-mono text-sm text-neutral-500 dark:text-neutral-400"
-											>{job.date}</span
-										>
-									</div>
-									<div class="mb-4 text-lg font-medium text-slate-600 dark:text-slate-400">
-										{job.role}
-									</div>
-									<ul class="list-disc space-y-2 pl-4 text-neutral-600 dark:text-neutral-400">
-										{#each job.points as point}
-											<li>{point}</li>
-										{/each}
-									</ul>
-								</div>
-							{/each}
-						</div>
-					</section>
-
-					<section>
-						<h2 class="font-display mb-8 text-3xl font-bold text-neutral-900 dark:text-white">
-							Education
-						</h2>
-						<div class="space-y-8">
-							{#each education as edu}
-								<div
-									class="rounded-2xl border border-white/20 bg-white/40 p-8 backdrop-blur-md dark:border-white/10 dark:bg-white/5"
-								>
-									<div class="flex flex-col justify-between gap-2 sm:flex-row sm:items-start">
-										<div>
-											<h3 class="font-display text-xl font-bold text-neutral-900 dark:text-white">
-												{edu.school}
+				<div in:fly={{ y: 20, duration: 300, delay: 100 }} out:fade={{ duration: 100 }}>
+					<div class="grid gap-16 lg:grid-cols-2">
+						<section>
+							<h2 class="font-display mb-12 text-4xl font-black uppercase text-neutral-900 dark:text-white">
+								Work Experience
+							</h2>
+							<div class="space-y-12">
+								{#each experience as job}
+									<div class="relative border-l-2 border-neutral-900 pl-8 dark:border-white">
+										<div
+											class="absolute -left-[9px] top-0 h-4 w-4 border-2 border-neutral-900 bg-white dark:border-white dark:bg-neutral-950"
+										></div>
+										<div class="mb-4">
+											<h3 class="font-display text-2xl font-bold text-neutral-900 dark:text-white">
+												{job.company}
 											</h3>
-											<p class="text-slate-600 dark:text-slate-400">{edu.degree}</p>
+											<div class="mt-1 flex flex-wrap gap-x-4 gap-y-1 font-mono text-sm text-neutral-500 dark:text-neutral-400">
+												<span class="font-bold text-neutral-900 dark:text-white">{job.role}</span>
+												<span>•</span>
+												<span>{job.date}</span>
+											</div>
 										</div>
-										<div class="text-right text-sm text-neutral-500 dark:text-neutral-400">
-											<p>{edu.date}</p>
-											<p>{edu.location}</p>
-										</div>
-									</div>
-									{#if edu.details.length > 0}
-										<ul class="mt-4 list-disc pl-4 text-sm text-neutral-600 dark:text-neutral-400">
-											{#each edu.details as detail}
-												<li>{detail}</li>
+										<ul class="list-disc space-y-3 pl-4 font-mono text-sm leading-relaxed text-neutral-700 dark:text-neutral-300">
+											{#each job.points as point}
+												<li>{point}</li>
 											{/each}
 										</ul>
-									{/if}
-								</div>
-							{/each}
-						</div>
-					</section>
+									</div>
+								{/each}
+							</div>
+						</section>
+
+						<section>
+							<h2 class="font-display mb-12 text-4xl font-black uppercase text-neutral-900 dark:text-white">
+								Education
+							</h2>
+							<div class="space-y-8">
+								{#each education as edu}
+									<div
+										class="border-2 border-neutral-900 bg-white p-8 dark:border-white dark:bg-neutral-950"
+									>
+										<div class="mb-6 flex flex-col justify-between gap-2 sm:flex-row sm:items-start">
+											<div>
+												<h3 class="font-display text-xl font-bold text-neutral-900 dark:text-white">
+													{edu.school}
+												</h3>
+												<p class="font-mono text-sm text-neutral-600 dark:text-neutral-400">{edu.degree}</p>
+											</div>
+											<div class="text-right font-mono text-xs text-neutral-500 dark:text-neutral-400">
+												<p>{edu.date}</p>
+												<p>{edu.location}</p>
+											</div>
+										</div>
+										{#if edu.details.length > 0}
+											<ul class="list-disc pl-4 font-mono text-sm text-neutral-700 dark:text-neutral-300">
+												{#each edu.details as detail}
+													<li>{detail}</li>
+												{/each}
+											</ul>
+										{/if}
+									</div>
+								{/each}
+							</div>
+						</section>
+					</div>
 				</div>
 			{:else if activeTab === 'Skills'}
 				<div in:fly={{ y: 20, duration: 300, delay: 100 }} out:fade={{ duration: 100 }}>
-					<div class="space-y-6">
+					<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
 						{#each skillCategories as category}
 							<div
-								class="rounded-2xl border border-white/20 bg-white/40 p-8 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-white/5"
+								class="border-2 border-neutral-900 bg-white p-8 dark:border-white dark:bg-neutral-950"
 							>
-								<h2 class="font-display mb-6 text-2xl font-bold text-neutral-900 dark:text-white">
+								<h2 class="font-display mb-8 text-2xl font-bold uppercase text-neutral-900 dark:text-white">
 									{category.name}
 								</h2>
 								<div class="flex flex-wrap gap-3">
 									{#each category.skills as skill}
 										<span
-											class="rounded-full bg-neutral-100 px-4 py-2 text-base font-medium text-neutral-700 transition-colors hover:bg-slate-100 hover:text-slate-700 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-slate-900/30 dark:hover:text-slate-400"
+											class="border border-neutral-900 px-3 py-1.5 font-mono text-sm font-bold text-neutral-900 transition-colors hover:bg-neutral-900 hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-neutral-900"
 										>
 											{skill}
 										</span>
@@ -359,14 +367,17 @@
 			{:else if activeTab === 'Interests'}
 				<div in:fly={{ y: 20, duration: 300, delay: 100 }} out:fade={{ duration: 100 }}>
 					<div
-						class="rounded-2xl border border-white/20 bg-white/40 p-8 shadow-sm backdrop-blur-md dark:border-white/10 dark:bg-white/5"
+						class="border-2 border-neutral-900 bg-white p-12 dark:border-white dark:bg-neutral-950"
 					>
-						<h2 class="font-display mb-6 text-2xl font-bold text-neutral-900 dark:text-white">
+						<h2 class="font-display mb-8 text-3xl font-black uppercase text-neutral-900 dark:text-white">
 							Interests & Activities
 						</h2>
-						<ul class="list-disc space-y-2 pl-4 text-neutral-700 dark:text-neutral-300">
+						<ul class="grid gap-4 sm:grid-cols-2">
 							{#each interests as interest}
-								<li class="text-lg">{interest}</li>
+								<li class="flex items-start gap-3 font-mono text-sm text-neutral-800 dark:text-neutral-200">
+									<span class="mt-1.5 h-1.5 w-1.5 shrink-0 bg-neutral-900 dark:bg-white"></span>
+									{interest}
+								</li>
 							{/each}
 						</ul>
 					</div>
