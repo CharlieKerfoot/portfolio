@@ -38,72 +38,84 @@
 			description:
 				'A UFC guessing game using Selenium web scraping and built on Vue, Typescript, Express, and SQLite.',
 			tags: ['Vue', 'TypeScript', 'Express', 'SQLite', 'Selenium'],
-			link: 'https://github.com/charliekerfoot/fight-facts'
+			github: 'https://github.com/charliekerfoot/fight-facts',
+			url: 'https://fight-facts.vercel.app/'
 		},
 		{
 			title: 'Self-hosted Password Manager',
 			description:
 				'Password Manager hosted on a local Raspberry Pi with a Rust webserver and a Svelte interface.',
 			tags: ['Rust', 'Svelte', 'Raspberry Pi', 'Security'],
-			link: 'https://github.com/charliekerfoot/pw-manager'
+			github: 'https://github.com/charliekerfoot/pw-manager',
+			url: 'https://pw-manager-ckerf.vercel.app/'
 		},
 		{
 			title: 'Maze Algorithm Visualization',
 			description:
 				"A Three.js visualization of Kruskal's algorithm implemented in TypeScript with a Svelte webpage.",
 			tags: ['Three.js', 'TypeScript', 'Svelte', 'Data Structures', 'Maze Generation'],
-			link: 'https://github.com/charliekerfoot/maze-threejs'
+			github: 'https://github.com/charliekerfoot/maze-threejs',
+			url: ''
 		},
 		{
 			title: 'Rat Computer Vision Model',
 			description:
 				'A PyTorch CNN trained on sample images to detect rats in NYC apartments via a Raspberry Pi webcam and OpenCV.',
-			tags: ['PyTorch', 'CNN', 'Python', 'OpenCV', 'Computer Vision']
+			tags: ['PyTorch', 'CNN', 'Python', 'OpenCV', 'Computer Vision'],
+			github: '',
+			url: ''
 		},
 		{
 			title: 'Gemini 3 File Manager Agent',
 			description:
 				'A CLI-based AI agent that helps you manage your files and directories using natural language commands.',
 			tags: ['AI Agents', 'LLMs', 'Gemini 3', 'Python'],
-			link: 'https://github.com/charliekerfoot/file-manager-agent'
+			github: 'https://github.com/charliekerfoot/file-manager-agent',
+			url: ''
 		},
 		{
 			title: 'Code Executer MCP Server',
 			description:
 				'A Model Context Protocol server that allows LLMs to run code from user prompts.',
 			tags: ['Typescript', 'MCP', 'NLP', 'LLMs'],
-			link: 'https://github.com/CharlieKerfoot/code-execution-mcp'
+			github: 'https://github.com/CharlieKerfoot/code-execution-mcp',
+			url: ''
 		},
 		{
 			title: 'Data Analysis & Visualization Blogs',
 			description:
 				'A collection of blogs analyzing datasets with Pandas and displaying visualizations built in Vega-Altair, MatPlotLib, or D3.',
 			tags: ['Python', 'Pandas', 'Vega-Altair', 'Matplotlib', 'D3'],
-			link: 'https://charliekerfoot.github.io/'
+			github: 'https://github.com/CharlieKerfoot/CharlieKerfoot.github.io',
+			url: 'https://charliekerfoot.github.io/'
 		},
 		{
 			title: 'Rust Web Server from Scratch',
 			description: 'A HTTP Web Server built out in Rust.',
 			tags: ['Rust', 'HTTP', 'HTML', 'Backend'],
-			link: 'https://github.com/CharlieKerfoot/web-server-rust'
+			github: 'https://github.com/CharlieKerfoot/web-server-rust',
+			url: ''
 		},
 		{
 			title: "Kruskal's Algorithm Implementation",
 			description: "An implementation of Kruskal's algorithm in C.",
 			tags: ['C', 'Data Structures', 'Maze Generation'],
-			link: 'https://github.com/CharlieKerfoot/maze-generation-c'
+			github: 'https://github.com/CharlieKerfoot/maze-generation-c',
+			url: ''
 		},
 		{
 			title: 'Data Structures in C',
 			description: 'A library implementing the core data structures in C.',
 			tags: ['C', 'Data Structures'],
-			link: 'https://github.com/CharlieKerfoot/data-structures'
+			github: 'https://github.com/CharlieKerfoot/data-structures',
+			url: ''
 		},
 		{
 			title: 'Haskell Hash Map Implementation',
 			description: 'A hash map design in Haskell.',
 			tags: ['Haskell', 'Data Structures'],
-			link: 'https://github.com/CharlieKerfoot/hashmap-haskell'
+			github: 'https://github.com/CharlieKerfoot/hashmap-haskell',
+			url: ''
 		}
 	];
 
@@ -229,48 +241,54 @@
 				<div in:fly={{ y: 20, duration: 300, delay: 100 }} out:fade={{ duration: 100 }}>
 					<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
 						{#each projects as project}
-							<a
-								href={project.link}
-								target={project.link ? '_blank' : ''}
-								class="group flex h-full flex-col justify-between border-2 border-neutral-900 bg-white p-6 transition-all hover:bg-neutral-50 dark:border-white dark:bg-neutral-950 dark:hover:bg-neutral-900"
+							<div
+								class="flex h-full flex-col justify-between border-2 border-neutral-900 bg-white p-6 transition-all hover:bg-neutral-50 dark:border-white dark:bg-neutral-950 dark:hover:bg-neutral-900"
 							>
 								<div>
-									<div class="mb-4 flex items-start justify-between">
+									<div class="mb-4">
 										<h3
-											class="font-display text-2xl font-bold leading-tight text-neutral-900 group-hover:underline dark:text-white"
+											class="font-display text-2xl font-bold leading-tight text-neutral-900 dark:text-white"
 										>
 											{project.title}
 										</h3>
-										{#if project.link}
-											<svg
-												xmlns="http://www.w3.org/2000/svg"
-												viewBox="0 0 24 24"
-												fill="none"
-												stroke="currentColor"
-												stroke-width="2"
-												stroke-linecap="square"
-												stroke-linejoin="miter"
-												class="h-6 w-6 shrink-0 text-neutral-900 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 dark:text-white"
-											>
-												<line x1="7" y1="17" x2="17" y2="7"></line>
-												<polyline points="7 7 17 7 17 17"></polyline>
-											</svg>
-										{/if}
 									</div>
 									<p class="mb-6 font-mono text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
 										{project.description}
 									</p>
+									<div class="mb-6 flex flex-wrap gap-2">
+										{#each project.tags as tag}
+											<span
+												class="border border-neutral-900 px-2 py-1 font-mono text-xs font-bold uppercase text-neutral-900 dark:border-white dark:text-white"
+											>
+												{tag}
+											</span>
+										{/each}
+									</div>
 								</div>
-								<div class="flex flex-wrap gap-2">
-									{#each project.tags as tag}
-										<span
-											class="border border-neutral-900 px-2 py-1 font-mono text-xs font-bold uppercase text-neutral-900 dark:border-white dark:text-white"
+								
+								<div class="flex gap-3 pt-4 border-t-2 border-neutral-100 dark:border-neutral-800">
+									{#if project.github}
+										<a
+											href={project.github}
+											target="_blank"
+											class="flex-1 inline-flex items-center justify-center gap-2 border-2 border-neutral-900 bg-transparent px-4 py-2 font-mono text-xs font-bold uppercase text-neutral-900 transition-colors hover:bg-neutral-900 hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-neutral-900"
 										>
-											{tag}
-										</span>
-									{/each}
+											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+											GitHub
+										</a>
+									{/if}
+									{#if project.url}
+										<a
+											href={project.url}
+											target="_blank"
+											class="flex-1 inline-flex items-center justify-center gap-2 border-2 border-neutral-900 bg-neutral-900 px-4 py-2 font-mono text-xs font-bold uppercase text-white transition-colors hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200"
+										>
+											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+											Visit
+										</a>
+									{/if}
 								</div>
-							</a>
+							</div>
 						{/each}
 					</div>
 				</div>
