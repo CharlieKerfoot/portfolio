@@ -50,13 +50,13 @@
 				next="VIEW WORK"
 				icon="portfolio"
 			/>
-			<StartNav
+			<!-- <StartNav
 				title="BLOG"
 				description="Discussing our place in this world."
 				redirect="blogs"
 				next="READ POSTS"
 				icon="blog"
-			/>
+			/> -->
 			<StartNav
 				title="RESUME"
 				description="Professional history and skills."

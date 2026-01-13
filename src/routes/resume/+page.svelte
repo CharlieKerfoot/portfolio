@@ -34,6 +34,13 @@
 
 	const projects = [
 		{
+			title: 'Arb Agent',
+			description: 'A Llama 3 financial reasoning agent fine-tuned on synthetic Chain-of-Thought examples from SEC 10-Ks with a Rust inference backend.',
+			tags: ['LLMs', 'AI Agents', 'Data Cleaning', 'Rust', 'NLP', 'Chain-of-Thought, Fine-Tuning'],
+			github: 'https://github.com/charliekerfoot/finance-agent',
+			url: ''
+		},
+		{
 			title: 'Fight Facts',
 			description:
 				'A UFC guessing game using Selenium web scraping and built on Vue, Typescript, Express, and SQLite.',
@@ -58,14 +65,6 @@
 			url: ''
 		},
 		{
-			title: 'Rat Computer Vision Model',
-			description:
-				'A PyTorch CNN trained on sample images to detect rats in NYC apartments via a Raspberry Pi webcam and OpenCV.',
-			tags: ['PyTorch', 'CNN', 'Python', 'OpenCV', 'Computer Vision'],
-			github: '',
-			url: ''
-		},
-		{
 			title: 'Gemini 3 File Manager Agent',
 			description:
 				'A CLI-based AI agent that helps you manage your files and directories using natural language commands.',
@@ -79,6 +78,14 @@
 				'A Model Context Protocol server that allows LLMs to run code from user prompts.',
 			tags: ['Typescript', 'MCP', 'NLP', 'LLMs'],
 			github: 'https://github.com/CharlieKerfoot/code-execution-mcp',
+			url: ''
+		},
+		{
+			title: 'Rat Computer Vision Model',
+			description:
+				'A PyTorch CNN trained on sample images to detect rats in NYC apartments via a Raspberry Pi webcam and OpenCV.',
+			tags: ['PyTorch', 'CNN', 'Python', 'OpenCV', 'Computer Vision'],
+			github: '',
 			url: ''
 		},
 		{

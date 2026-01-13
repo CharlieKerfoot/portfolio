@@ -47,7 +47,7 @@
 >
 	<a href="/portfolio" class="decoration-2 underline-offset-4 hover:underline">WORK</a>
 	<a href="/blogs" class="decoration-2 underline-offset-4 hover:underline">THOUGHTS</a>
-	<a href="/resume" class="decoration-2 underline-offset-4 hover:underline">PROFILE</a>
+	<a href="/resume" class="decoration-2 underline-offset-4 hover:underline">RESUME</a>
 </div>
 
 <!-- Bottom Left: Context -->
