@@ -1,5 +1,5 @@
 <script>
-	let { title, icon, description, redirect, next } = $props();
+	let { title, description, redirect, next } = $props();
 </script>
 
 <a
