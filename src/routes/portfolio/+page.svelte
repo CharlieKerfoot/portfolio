@@ -42,7 +42,7 @@
 			>
 				<div class="flex justify-between border-b-2 border-current pb-4">
 					<span class="font-mono text-lg md:text-xl">0{i + 1}</span>
-					<span class="font-mono text-lg md:text-xl">2024</span>
+					<span class="font-mono text-lg md:text-xl">2026</span>
 				</div>
 
 				<div class="space-y-4">
