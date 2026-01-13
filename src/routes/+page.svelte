@@ -44,25 +44,22 @@
 	>
 		<div class="grid grid-cols-1 gap-8 md:grid-cols-3">
 			<StartNav
-				title="PORTFOLIO"
+				title="WORK"
 				description="Selected works and experiments."
 				redirect="portfolio"
 				next="VIEW WORK"
-				icon="portfolio"
 			/>
-			<!-- <StartNav
-				title="BLOG"
+			<StartNav
+				title="THOUGHTS"
 				description="Discussing our place in this world."
 				redirect="blogs"
 				next="READ POSTS"
-				icon="blog"
-			/> -->
+			/>
 			<StartNav
 				title="RESUME"
 				description="Professional history and skills."
 				redirect="resume"
 				next="VIEW PROFILE"
-				icon="resume"
 			/>
 		</div>
 	</div>
