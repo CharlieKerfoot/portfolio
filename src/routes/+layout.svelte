@@ -64,7 +64,7 @@
 </div>
 
 <main
-	class="relative min-h-screen w-full overflow-x-hidden px-8 pt-32 pb-16 selection:bg-white selection:text-black"
+	class="relative min-h-screen w-full overflow-x-hidden px-8 pt-32 pb-16"
 >
 	<slot />
 </main>
