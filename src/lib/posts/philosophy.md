@@ -26,5 +26,5 @@ tags: ["life", "meaning"]
 19. This is the easiest generation for success.
 20. Seek immortality.
 
-Life is meaningless. Camus triumphs in his absurd. Yet don't disregard all the above. Absurdity demands you live even harder. 
-Simply, proceed with caution.
+*Life is meaningless. Camus triumphs in his absurd. Yet don't disregard all the above. Absurdity demands you live even harder.* 
+*Simply, proceed with caution.*

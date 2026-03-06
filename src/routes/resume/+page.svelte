@@ -37,7 +37,15 @@
 			title: 'Arb Agent',
 			description:
 				'A Llama 3 financial reasoning agent fine-tuned on synthetic Chain-of-Thought examples from SEC 10-Ks with a Rust inference backend.',
-			tags: ['LLMs', 'AI Agents', 'Data Cleaning', 'Rust', 'NLP', 'Chain-of-Thought, Fine-Tuning'],
+			tags: [
+				'LLMs',
+				'AI Agents',
+				'Data Cleaning',
+				'Rust',
+				'NLP',
+				'Chain-of-Thought',
+				'Fine-Tuning'
+			],
 			github: 'https://github.com/charliekerfoot/finance-agent',
 			url: ''
 		},

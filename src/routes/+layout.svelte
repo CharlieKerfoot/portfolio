@@ -27,9 +27,7 @@
 	<link rel="manifest" href="/favicon/site.webmanifest" />
 </svelte:head>
 
-<div
-	class="pointer-events-none fixed inset-0 z-50 border-[12px] border-neutral-200 transition-colors duration-300 dark:border-neutral-900"
-></div>
+<div class="pointer-events-none fixed inset-0 z-50 transition-colors duration-300"></div>
 
 <!-- Top Left: Brand -->
 <div class="fixed top-4 left-4 z-40 mix-blend-difference md:top-8 md:left-8">
