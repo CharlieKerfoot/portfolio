@@ -94,7 +94,7 @@
 			description:
 				'A PyTorch CNN trained on sample images to detect rats in NYC apartments via a Raspberry Pi webcam and OpenCV.',
 			tags: ['PyTorch', 'CNN', 'Python', 'OpenCV', 'Computer Vision'],
-			github: '',
+			github: 'https://github.com/CharlieKerfoot/rat-vision',
 			url: ''
 		},
 		{
