@@ -61,7 +61,7 @@
 					</svg>
 				</a>
 				<a
-					href="https://x.com/ckerf24"
+					href="https://x.com/ckerf_24"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="text-neutral-500 transition-colors hover:text-slate-400 dark:text-neutral-400 dark:hover:text-slate-300"
