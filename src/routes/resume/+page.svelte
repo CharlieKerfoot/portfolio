@@ -5,6 +5,65 @@
 	let activeTab = $state('Projects');
 	const tabs = ['Projects', 'Experience', 'Skills', 'Interests'];
 
+	// ─── GitHub live fetch ────────────────────────────────────────────────────
+	const GITHUB_USERNAME = 'CharlieKerfoot';
+
+	interface GithubRepo {
+		id: number;
+		name: string;
+		description: string | null;
+		language: string | null;
+		homepage: string | null;
+		html_url: string;
+		fork: boolean;
+		owner: { login: string };
+	}
+
+	interface Project {
+		title: string;
+		description: string;
+		language: string | null;
+		github: string;
+		url: string;
+	}
+
+	let projects = $state<Project[]>([]);
+	let projectsLoading = $state(true);
+	let projectsError = $state<string | null>(null);
+
+	async function fetchProjects() {
+		projectsLoading = true;
+		projectsError = null;
+		try {
+			const res = await fetch(
+				`https://api.github.com/users/${GITHUB_USERNAME}/starred?per_page=100&sort=updated`,
+				{ headers: { Accept: 'application/vnd.github+json' } }
+			);
+			if (!res.ok) throw new Error(`GitHub API error: ${res.status}`);
+			const repos: GithubRepo[] = await res.json();
+			projects = repos
+				.filter((r) => r.owner?.login.toLowerCase() === GITHUB_USERNAME.toLowerCase())
+				.map((r) => ({
+					title: r.name.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()),
+					description: r.description ?? 'No description provided.',
+					language: r.language,
+					github: r.html_url,
+					url: r.homepage && r.homepage.startsWith('http') ? r.homepage : ''
+				}));
+		} catch (e) {
+			projectsError = e instanceof Error ? e.message : 'Failed to load projects.';
+		} finally {
+			projectsLoading = false;
+		}
+	}
+
+	$effect(() => {
+		if (activeTab === 'Projects' && projects.length === 0 && !projectsError) {
+			fetchProjects();
+		}
+	});
+	// ─────────────────────────────────────────────────────────────────────────
+
 	const skillCategories = [
 		{
 			name: 'Programming Languages',
@@ -29,109 +88,6 @@
 				'Adobe Premiere Pro',
 				'Microsoft Office'
 			]
-		}
-	];
-
-	const projects = [
-		{
-			title: 'Arb Agent',
-			description:
-				'A Llama 3 financial reasoning agent fine-tuned on synthetic Chain-of-Thought examples from SEC 10-Ks with a Rust inference backend.',
-			tags: [
-				'LLMs',
-				'AI Agents',
-				'Data Cleaning',
-				'Rust',
-				'NLP',
-				'Chain-of-Thought',
-				'Fine-Tuning'
-			],
-			github: 'https://github.com/charliekerfoot/finance-agent',
-			url: ''
-		},
-		{
-			title: 'Fight Facts',
-			description:
-				'A UFC guessing game using Selenium web scraping and built on Vue, Typescript, Express, and SQLite.',
-			tags: ['Vue', 'TypeScript', 'Express', 'SQLite', 'Selenium'],
-			github: 'https://github.com/charliekerfoot/fight-facts',
-			url: 'https://fight-facts.vercel.app/'
-		},
-		{
-			title: 'Self-hosted Password Manager',
-			description:
-				'Password Manager hosted on a local Raspberry Pi with a Rust webserver and a Svelte interface.',
-			tags: ['Rust', 'Svelte', 'Raspberry Pi', 'Security'],
-			github: 'https://github.com/charliekerfoot/pw-manager',
-			url: 'https://pw-manager-ckerf.vercel.app/'
-		},
-		{
-			title: 'Maze Algorithm Visualization',
-			description:
-				"A Three.js visualization of Kruskal's algorithm implemented in TypeScript with a Svelte webpage.",
-			tags: ['Three.js', 'TypeScript', 'Svelte', 'Data Structures', 'Maze Generation'],
-			github: 'https://github.com/charliekerfoot/maze-threejs',
-			url: 'https://maze-threejs.vercel.app/'
-		},
-		{
-			title: 'Gemini 3 File Manager Agent',
-			description:
-				'A CLI-based AI agent that helps you manage your files and directories using natural language commands.',
-			tags: ['AI Agents', 'LLMs', 'Gemini 3', 'Python'],
-			github: 'https://github.com/charliekerfoot/file-manager-agent',
-			url: ''
-		},
-		{
-			title: 'Code Executer MCP Server',
-			description:
-				'A Model Context Protocol server that allows LLMs to run code from user prompts.',
-			tags: ['Typescript', 'MCP', 'NLP', 'LLMs'],
-			github: 'https://github.com/CharlieKerfoot/code-execution-mcp',
-			url: ''
-		},
-		{
-			title: 'Rat Computer Vision Model',
-			description:
-				'A PyTorch CNN trained on sample images to detect rats in NYC apartments via a Raspberry Pi webcam and OpenCV.',
-			tags: ['PyTorch', 'CNN', 'Python', 'OpenCV', 'Computer Vision'],
-			github: 'https://github.com/CharlieKerfoot/rat-vision',
-			url: ''
-		},
-		{
-			title: 'Data Analysis & Visualization Blogs',
-			description:
-				'A collection of blogs analyzing datasets with Pandas and displaying visualizations built in Vega-Altair, MatPlotLib, or D3.',
-			tags: ['Python', 'Pandas', 'Vega-Altair', 'Matplotlib', 'D3'],
-			github: 'https://github.com/CharlieKerfoot/CharlieKerfoot.github.io',
-			url: 'https://charliekerfoot.github.io/'
-		},
-		{
-			title: 'Rust Web Server from Scratch',
-			description: 'A HTTP Web Server built out in Rust.',
-			tags: ['Rust', 'HTTP', 'HTML', 'Backend'],
-			github: 'https://github.com/CharlieKerfoot/web-server-rust',
-			url: ''
-		},
-		{
-			title: "Kruskal's Algorithm Implementation",
-			description: "An implementation of Kruskal's algorithm in C.",
-			tags: ['C', 'Data Structures', 'Maze Generation'],
-			github: 'https://github.com/CharlieKerfoot/maze-generation-c',
-			url: ''
-		},
-		{
-			title: 'Data Structures in C',
-			description: 'A library implementing the core data structures in C.',
-			tags: ['C', 'Data Structures'],
-			github: 'https://github.com/CharlieKerfoot/data-structures',
-			url: ''
-		},
-		{
-			title: 'Haskell Hash Map Implementation',
-			description: 'A hash map design in Haskell.',
-			tags: ['Haskell', 'Data Structures'],
-			github: 'https://github.com/CharlieKerfoot/hashmap-haskell',
-			url: ''
 		}
 	];
 
@@ -191,6 +147,18 @@
 		'Watching Movies',
 		'Music (Country, EDM, Grunge, Indie Pop)'
 	];
+
+	// Language → color mapping (matching your existing tag border aesthetic)
+	const langColors: Record<string, string> = {
+		TypeScript: 'border-blue-500 text-blue-600 dark:text-blue-400',
+		JavaScript: 'border-yellow-500 text-yellow-600 dark:text-yellow-400',
+		Python: 'border-green-500 text-green-600 dark:text-green-400',
+		Rust: 'border-orange-500 text-orange-600 dark:text-orange-400',
+		Haskell: 'border-purple-500 text-purple-600 dark:text-purple-400',
+		C: 'border-gray-500 text-gray-600 dark:text-gray-400',
+		'C++': 'border-pink-500 text-pink-600 dark:text-pink-400',
+		Svelte: 'border-red-500 text-red-600 dark:text-red-400'
+	};
 </script>
 
 <div class="flex min-h-screen flex-col bg-neutral-50 dark:bg-neutral-950">
@@ -257,37 +225,76 @@
 		<div class="min-h-[50vh]">
 			{#if activeTab === 'Projects'}
 				<div in:fly={{ y: 20, duration: 300, delay: 100 }} out:fade={{ duration: 100 }}>
-					<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-						{#each projects as project}
-							<div
-								class="flex h-full flex-col justify-between border-2 border-neutral-900 bg-white p-6 transition-all hover:bg-neutral-50 dark:border-white dark:bg-neutral-950 dark:hover:bg-neutral-900"
-							>
-								<div>
-									<div class="mb-4">
-										<h3
-											class="font-display text-2xl leading-tight font-bold text-neutral-900 dark:text-white"
-										>
-											{project.title}
-										</h3>
-									</div>
-									<p
-										class="mb-6 font-mono text-sm leading-relaxed text-neutral-600 dark:text-neutral-400"
-									>
-										{project.description}
-									</p>
-									<div class="mb-6 flex flex-wrap gap-2">
-										{#each project.tags as tag}
-											<span
-												class="border border-neutral-900 px-2 py-1 font-mono text-xs font-bold text-neutral-900 uppercase dark:border-white dark:text-white"
-											>
-												{tag}
-											</span>
-										{/each}
-									</div>
-								</div>
+					<!-- Loading state -->
+					{#if projectsLoading}
+						<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+							{#each Array(6) as _}
+								<div
+									class="h-64 animate-pulse border-2 border-neutral-200 bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-900"
+								></div>
+							{/each}
+						</div>
 
-								<div class="flex gap-3 border-t-2 border-neutral-100 pt-4 dark:border-neutral-800">
-									{#if project.github}
+						<!-- Error state -->
+					{:else if projectsError}
+						<div
+							class="border-2 border-neutral-900 bg-white p-8 dark:border-white dark:bg-neutral-950"
+						>
+							<p
+								class="mb-4 font-mono text-sm font-bold text-neutral-900 uppercase dark:text-white"
+							>
+								Failed to load projects
+							</p>
+							<p class="mb-6 font-mono text-xs text-neutral-500 dark:text-neutral-400">
+								{projectsError}
+							</p>
+							<button
+								onclick={fetchProjects}
+								class="border-2 border-neutral-900 px-6 py-2 font-mono text-xs font-bold uppercase transition-colors hover:bg-neutral-900 hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-neutral-900"
+							>
+								Retry
+							</button>
+						</div>
+
+						<!-- Projects grid -->
+					{:else}
+						<div class="mb-6 flex items-center justify-between">
+							<p class="font-mono text-xs text-neutral-500 uppercase dark:text-neutral-400">
+								{projects.length} starred repos · live from github
+							</p>
+						</div>
+						<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+							{#each projects as project}
+								<div
+									class="flex h-full flex-col justify-between border-2 border-neutral-900 bg-white p-6 transition-all hover:bg-neutral-50 dark:border-white dark:bg-neutral-950 dark:hover:bg-neutral-900"
+								>
+									<div>
+										<div class="mb-4 flex items-start justify-between gap-2">
+											<h3
+												class="font-display text-2xl leading-tight font-bold text-neutral-900 dark:text-white"
+											>
+												{project.title}
+											</h3>
+											{#if project.language}
+												<span
+													class="shrink-0 border px-2 py-1 font-mono text-xs font-bold uppercase {langColors[
+														project.language
+													] ?? 'border-neutral-400 text-neutral-500 dark:text-neutral-400'}"
+												>
+													{project.language}
+												</span>
+											{/if}
+										</div>
+										<p
+											class="mb-6 font-mono text-sm leading-relaxed text-neutral-600 dark:text-neutral-400"
+										>
+											{project.description}
+										</p>
+									</div>
+
+									<div
+										class="flex gap-3 border-t-2 border-neutral-100 pt-4 dark:border-neutral-800"
+									>
 										<a
 											href={project.github}
 											target="_blank"
@@ -303,44 +310,42 @@
 												stroke-width="2"
 												stroke-linecap="round"
 												stroke-linejoin="round"
-												><path
-													d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-												></path></svg
 											>
+												<path
+													d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+												></path>
+											</svg>
 											GitHub
 										</a>
-									{/if}
-									{#if project.url}
-										<a
-											href={project.url}
-											target="_blank"
-											class="inline-flex flex-1 items-center justify-center gap-2 border-2 border-neutral-900 bg-neutral-900 px-4 py-2 font-mono text-xs font-bold text-white uppercase transition-colors hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200"
-										>
-											<svg
-												xmlns="http://www.w3.org/2000/svg"
-												width="16"
-												height="16"
-												viewBox="0 0 24 24"
-												fill="none"
-												stroke="currentColor"
-												stroke-width="2"
-												stroke-linecap="round"
-												stroke-linejoin="round"
-												><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
-												></path><polyline points="15 3 21 3 21 9"></polyline><line
-													x1="10"
-													y1="14"
-													x2="21"
-													y2="3"
-												></line></svg
+										{#if project.url}
+											<a
+												href={project.url}
+												target="_blank"
+												class="inline-flex flex-1 items-center justify-center gap-2 border-2 border-neutral-900 bg-neutral-900 px-4 py-2 font-mono text-xs font-bold text-white uppercase transition-colors hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200"
 											>
-											Visit
-										</a>
-									{/if}
+												<svg
+													xmlns="http://www.w3.org/2000/svg"
+													width="16"
+													height="16"
+													viewBox="0 0 24 24"
+													fill="none"
+													stroke="currentColor"
+													stroke-width="2"
+													stroke-linecap="round"
+													stroke-linejoin="round"
+												>
+													<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+													<polyline points="15 3 21 3 21 9"></polyline>
+													<line x1="10" y1="14" x2="21" y2="3"></line>
+												</svg>
+												Visit
+											</a>
+										{/if}
+									</div>
 								</div>
-							</div>
-						{/each}
-					</div>
+							{/each}
+						</div>
+					{/if}
 				</div>
 			{:else if activeTab === 'Experience'}
 				<div in:fly={{ y: 20, duration: 300, delay: 100 }} out:fade={{ duration: 100 }}>
