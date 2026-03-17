@@ -19,13 +19,13 @@
 <div class="relative min-h-[150vh]">
 	<div class="fixed inset-0 flex flex-col items-center justify-center pointer-events-none z-0 overflow-hidden">
 		<h1
-			class="text-[18vw] font-black leading-none tracking-tighter text-neutral-900 dark:text-white transition-transform duration-75 will-change-transform"
+			class="font-display text-[18vw] font-bold leading-none tracking-tighter text-neutral-900 dark:text-white transition-transform duration-75 will-change-transform"
 			style="transform: translateX({-scrollY * 0.5}px)"
 		>
 			CHARLIE
 		</h1>
 		<h1
-			class="text-[18vw] font-black leading-none tracking-tighter text-neutral-900 dark:text-white transition-transform duration-75 will-change-transform"
+			class="font-display text-[18vw] font-bold leading-none tracking-tighter text-neutral-900 dark:text-white transition-transform duration-75 will-change-transform"
 			style="transform: translateX({scrollY * 0.5}px)"
 		>
 			KERFOOT

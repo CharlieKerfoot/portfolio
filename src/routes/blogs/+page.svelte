@@ -20,7 +20,7 @@
 	<div class="mx-auto max-w-7xl">
 		<header class="mb-16 border-b-4 border-neutral-900 pb-8 md:mb-24 dark:border-neutral-700">
 			<h1
-				class="text-5xl font-black tracking-tighter text-neutral-900 uppercase md:text-8xl dark:text-white"
+				class="font-display text-5xl font-bold tracking-tighter text-neutral-900 uppercase md:text-8xl dark:text-white"
 			>
 				BEST FOOT FORWARD
 			</h1>
