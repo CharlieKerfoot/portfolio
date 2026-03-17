@@ -4,7 +4,7 @@
 
 <a
 	href="/{redirect}"
-	class="group block h-full border-2 border-neutral-900 bg-neutral-50 p-8 transition-all duration-300 hover:bg-neutral-900 hover:text-white dark:border-neutral-700 dark:bg-neutral-900 dark:hover:bg-neutral-100 dark:hover:text-neutral-900"
+	class="group block h-full border-2 border-neutral-900 bg-neutral-50 p-8 transition-colors duration-300 hover:bg-neutral-900 hover:text-white dark:border-neutral-700 dark:bg-neutral-900 dark:hover:bg-neutral-100 dark:hover:text-neutral-900"
 >
 	<div class="flex h-full flex-col justify-between gap-12">
 		<div class="flex items-start justify-between">

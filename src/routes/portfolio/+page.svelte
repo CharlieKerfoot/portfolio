@@ -38,7 +38,7 @@
 		{#each projects as project, i}
 			<a
 				href={project.link}
-				class="group relative flex h-[50vh] md:h-[60vh] w-[85vw] md:w-[40vw] flex-shrink-0 flex-col justify-between border-2 border-neutral-900 bg-white p-6 md:p-8 transition-all hover:bg-neutral-900 hover:text-white dark:border-white dark:bg-neutral-900 dark:hover:bg-white dark:hover:text-neutral-900"
+				class="group relative flex h-[50vh] md:h-[60vh] w-[85vw] md:w-[40vw] flex-shrink-0 flex-col justify-between border-2 border-neutral-900 bg-white p-6 md:p-8 transition-colors hover:bg-neutral-900 hover:text-white dark:border-neutral-700 dark:bg-neutral-900 dark:hover:bg-neutral-100 dark:hover:text-neutral-900"
 			>
 				<div class="flex justify-between border-b-2 border-current pb-4">
 					<span class="font-mono text-lg md:text-xl">0{i + 1}</span>
