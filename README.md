@@ -6,10 +6,10 @@ See it here: https://charliekerfoot.com
 
 ## TODO
 
-- [ ] Write 1+ blog
+- [x] Write 1+ blog
 - [ ] Build out projects page
 
 ## Contact Me
 
 Feel free to shoot me an email at charliekerfoot@gmail.com. \
-I am also on [LinkedIn](https://linkedin.com/in/ckerf) and [X](https://x.com/ckerf24).
+I am also on [LinkedIn](https://linkedin.com/in/ckerf) and [X](https://x.com/ckerf_24).
