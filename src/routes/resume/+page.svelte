@@ -230,8 +230,12 @@
 						<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
 							{#each Array(6) as _}
 								<div
-									class="h-64 animate-pulse border-2 border-neutral-200 bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-900"
-								></div>
+									class="h-64 animate-pulse border-2 border-neutral-200 bg-neutral-100 p-6 dark:border-neutral-700 dark:bg-neutral-800"
+								>
+									<div class="mb-4 h-6 w-2/3 bg-neutral-200 dark:bg-neutral-700"></div>
+									<div class="mb-2 h-4 w-full bg-neutral-200 dark:bg-neutral-700"></div>
+									<div class="h-4 w-3/4 bg-neutral-200 dark:bg-neutral-700"></div>
+								</div>
 							{/each}
 						</div>
 
