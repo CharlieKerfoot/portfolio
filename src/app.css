@@ -6,37 +6,7 @@
 
 @layer base {
 	body {
-		@apply bg-neutral-50 text-neutral-900 antialiased transition-colors duration-300 dark:bg-neutral-950 dark:text-neutral-50 cursor-none;
-	}
-
-	/* Custom Cursor */
-	body::after {
-		content: "";
-		position: fixed;
-		top: var(--cursor-y, 50%);
-		left: var(--cursor-x, 50%);
-		width: 20px;
-		height: 20px;
-		background: white;
-		border-radius: 50%;
-		pointer-events: none;
-		z-index: 9999;
-		mix-blend-mode: difference;
-		transform: translate(-50%, -50%);
-		transition: width 0.3s, height 0.3s, background-color 0.3s, top 0.1s ease-out, left 0.1s ease-out;
-		will-change: top, left, width, height;
-	}
-
-	/* Hide default cursor */
-	a, button, input, textarea, select {
-		cursor: none;
-	}
-
-	/* Hover state for cursor */
-	body:has(a:hover)::after,
-	body:has(button:hover)::after {
-		width: 60px;
-		height: 60px;
+		@apply bg-neutral-50 text-neutral-900 antialiased transition-colors duration-300 dark:bg-neutral-950 dark:text-neutral-50;
 	}
 
 	body::before {
@@ -56,6 +26,15 @@
 		background: #0a0a0a;
 	}
 	
+	/* Focus-visible for keyboard accessibility */
+	a:focus-visible,
+	button:focus-visible,
+	input:focus-visible,
+	[role="button"]:focus-visible {
+		outline: 2px solid currentColor;
+		outline-offset: 2px;
+	}
+
 	/* Hide Scrollbar */
 	::-webkit-scrollbar {
 		width: 0px;

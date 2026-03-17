@@ -17,10 +17,10 @@
 				</p>
 			</div>
 
-			<div class="flex gap-6">
+			<div class="flex gap-2">
 				<a
 					href="mailto:charliekerfoot@gmail.com"
-					class="text-neutral-500 transition-colors hover:text-slate-600 dark:text-neutral-400 dark:hover:text-slate-400"
+					class="inline-flex h-11 w-11 items-center justify-center text-neutral-500 transition-colors hover:text-slate-600 dark:text-neutral-400 dark:hover:text-slate-400"
 					aria-label="Email"
 				>
 					<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -36,7 +36,7 @@
 					href="https://linkedin.com/in/ckerf"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="text-neutral-500 transition-colors hover:text-slate-700 dark:text-neutral-400 dark:hover:text-slate-500"
+					class="inline-flex h-11 w-11 items-center justify-center text-neutral-500 transition-colors hover:text-slate-700 dark:text-neutral-400 dark:hover:text-slate-500"
 					aria-label="LinkedIn"
 				>
 					<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -49,7 +49,7 @@
 					href="https://github.com/charliekerfoot"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"
+					class="inline-flex h-11 w-11 items-center justify-center text-neutral-500 transition-colors hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-white"
 					aria-label="GitHub"
 				>
 					<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -64,7 +64,7 @@
 					href="https://x.com/ckerf_24"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="text-neutral-500 transition-colors hover:text-slate-400 dark:text-neutral-400 dark:hover:text-slate-300"
+					class="inline-flex h-11 w-11 items-center justify-center text-neutral-500 transition-colors hover:text-slate-400 dark:text-neutral-400 dark:hover:text-slate-300"
 					aria-label="X"
 				>
 					<svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">

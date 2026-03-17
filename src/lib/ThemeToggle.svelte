@@ -5,15 +5,18 @@
 
 	onMount(() => {
 		isDark = document.documentElement.classList.contains('dark');
+		document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
 	});
 
 	function toggleTheme() {
 		isDark = !isDark;
 		if (isDark) {
 			document.documentElement.classList.add('dark');
+			document.documentElement.style.colorScheme = 'dark';
 			localStorage.setItem('theme', 'dark');
 		} else {
 			document.documentElement.classList.remove('dark');
+			document.documentElement.style.colorScheme = 'light';
 			localStorage.setItem('theme', 'light');
 		}
 	}

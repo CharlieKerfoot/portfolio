@@ -32,7 +32,7 @@
 					<input
 						type="text"
 						bind:value={searchQuery}
-						placeholder="SEARCH_INDEX..."
+						placeholder="Search posts..."
 						class="w-full border-2 border-neutral-900 bg-transparent px-4 py-3 font-mono text-sm uppercase placeholder-neutral-500 focus:bg-neutral-900 focus:text-white focus:outline-none dark:border-white dark:placeholder-neutral-500 dark:focus:bg-white dark:focus:text-neutral-900"
 					/>
 				</div>

@@ -40,7 +40,6 @@
 
 	<div
 		class="relative z-20 mt-[100vh] w-full max-w-7xl mx-auto"
-		style="opacity: {Math.min(Math.max((scrollY - innerHeight * 0.25) / (innerHeight * 0.3), 0), 1)}"
 	>
 		<div class="grid grid-cols-1 gap-8 md:grid-cols-3">
 			<StartNav

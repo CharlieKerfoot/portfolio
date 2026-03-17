@@ -1,20 +1,10 @@
 <script lang="ts">
 	import '../app.css';
 	import { page } from '$app/stores';
-	import { onMount } from 'svelte';
 	import { ThemeToggle } from '$lib';
 
 	let innerWidth = 0;
 	let innerHeight = 0;
-
-	onMount(() => {
-		const updateCursor = (e: MouseEvent) => {
-			document.body.style.setProperty('--cursor-x', `${e.clientX}px`);
-			document.body.style.setProperty('--cursor-y', `${e.clientY}px`);
-		};
-		window.addEventListener('mousemove', updateCursor);
-		return () => window.removeEventListener('mousemove', updateCursor);
-	});
 </script>
 
 <svelte:window bind:innerWidth bind:innerHeight />
@@ -33,7 +23,7 @@
 <div class="fixed top-4 left-4 z-40 mix-blend-difference md:top-8 md:left-8">
 	<a
 		href="/"
-		class="font-mono text-lg font-bold tracking-tighter text-white transition-opacity hover:opacity-50 md:text-xl"
+		class="inline-flex min-h-[44px] items-center font-mono text-lg font-bold tracking-tighter text-white transition-opacity hover:opacity-50 md:text-xl"
 	>
 		CKERF
 	</a>
@@ -43,9 +33,9 @@
 <div
 	class="fixed top-4 right-4 z-40 flex gap-4 font-mono text-xs text-white mix-blend-difference md:top-8 md:right-8 md:gap-6 md:text-sm"
 >
-	<a href="/portfolio" class="decoration-2 underline-offset-4 hover:underline">WORK</a>
-	<a href="/blogs" class="decoration-2 underline-offset-4 hover:underline">THOUGHTS</a>
-	<a href="/resume" class="decoration-2 underline-offset-4 hover:underline">RESUME</a>
+	<a href="/portfolio" class="inline-flex min-h-[44px] items-center decoration-2 underline-offset-4 hover:underline">WORK</a>
+	<a href="/blogs" class="inline-flex min-h-[44px] items-center decoration-2 underline-offset-4 hover:underline">THOUGHTS</a>
+	<a href="/resume" class="inline-flex min-h-[44px] items-center decoration-2 underline-offset-4 hover:underline">RESUME</a>
 </div>
 
 <!-- Bottom Left: Context -->
