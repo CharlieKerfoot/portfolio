@@ -16,7 +16,7 @@
 
 <svelte:window bind:innerHeight />
 
-<div class="relative min-h-[200vh]">
+<div class="relative min-h-[150vh]">
 	<div class="fixed inset-0 flex flex-col items-center justify-center pointer-events-none z-0 overflow-hidden">
 		<h1
 			class="text-[18vw] font-black leading-none tracking-tighter text-neutral-900 dark:text-white transition-transform duration-75 will-change-transform"
@@ -39,7 +39,7 @@
 	</div>
 
 	<div
-		class="relative z-20 mt-[100vh] w-full max-w-7xl mx-auto"
+		class="relative z-20 mt-[70vh] w-full max-w-7xl mx-auto pb-16"
 	>
 		<div class="grid grid-cols-1 gap-8 md:grid-cols-3">
 			<StartNav
