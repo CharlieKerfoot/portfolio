@@ -5,7 +5,6 @@
 	let activeTab = $state('Projects');
 	const tabs = ['Projects', 'Experience', 'Skills', 'Interests'];
 
-	// ─── GitHub live fetch ────────────────────────────────────────────────────
 	const GITHUB_USERNAME = 'CharlieKerfoot';
 
 	interface GithubRepo {
@@ -62,7 +61,6 @@
 			fetchProjects();
 		}
 	});
-	// ─────────────────────────────────────────────────────────────────────────
 
 	const skillCategories = [
 		{
@@ -139,16 +137,15 @@
 	];
 
 	const interests = [
-		'Watching Sports (NFL, College Football, MLB, NBA, College Basketball, UFC, Boxing)',
+		'Reading (Steinbeck, Kafka, Goethe, Stephen King, etc.)',
+		`Philosophy (Kierkegaard, Schopenhauer, Wittgenstein, Camus, Heidegger, Nietzsche)`,
+		'Watching Sports (NFL, College Football, MLB, NBA, UFC)',
 		'Playing Sports (American Football, Baseball, BJJ)',
 		'Building Electronics',
 		'Weight Training',
-		'Reading (Sci-fi, Stephen King, High-Fantasy, Biographies, Technical Books)',
-		'Watching Movies',
-		'Music (Country, EDM, Grunge, Indie Pop)'
+		'Music (Country, EDM, Grunge, Chet Baker)'
 	];
 
-	// Language → color mapping (matching your existing tag border aesthetic)
 	const langColors: Record<string, string> = {
 		TypeScript: 'border-blue-500 text-blue-600 dark:text-blue-400',
 		JavaScript: 'border-yellow-500 text-yellow-600 dark:text-yellow-400',
@@ -165,7 +162,6 @@
 	<div class="container mx-auto flex-1 px-4 py-8 sm:px-6 lg:px-8">
 		<header class="mb-20">
 			<div class="grid gap-12 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
-				<!-- Left Side: Name & Bio -->
 				<div class="flex flex-col gap-6">
 					<h1
 						class="font-display text-6xl font-black tracking-tighter text-neutral-900 uppercase sm:text-7xl dark:text-neutral-100"
@@ -187,10 +183,8 @@
 					</p>
 				</div>
 
-				<!-- Vertical Divider (Desktop only) -->
-				<div class="hidden h-full w-[2px] bg-neutral-900 lg:block dark:bg-neutral-700"></div>
+				<div class="hidden h-full w-0.5 bg-neutral-900 lg:block dark:bg-neutral-700"></div>
 
-				<!-- Right Side: Quote -->
 				<div class="flex flex-col justify-center">
 					<blockquote
 						class="font-display text-3xl leading-tight font-bold text-neutral-900 uppercase sm:text-4xl dark:text-neutral-100"
@@ -225,7 +219,6 @@
 		<div class="min-h-[50vh]">
 			{#if activeTab === 'Projects'}
 				<div in:fly={{ y: 20, duration: 300, delay: 100 }} out:fade={{ duration: 100 }}>
-					<!-- Loading state -->
 					{#if projectsLoading}
 						<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
 							{#each Array(6) as _}
@@ -238,8 +231,6 @@
 								</div>
 							{/each}
 						</div>
-
-						<!-- Error state -->
 					{:else if projectsError}
 						<div
 							class="border-2 border-neutral-900 bg-white p-8 dark:border-neutral-700 dark:bg-neutral-900"
@@ -259,12 +250,10 @@
 								Retry
 							</button>
 						</div>
-
-						<!-- Projects grid -->
 					{:else}
 						<div class="mb-6 flex items-center justify-between">
 							<p class="font-mono text-xs text-neutral-500 uppercase dark:text-neutral-400">
-								{projects.length} starred repos · live from github
+								{projects.length} repos · fetched from github
 							</p>
 						</div>
 						<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -356,7 +345,7 @@
 					<div class="grid gap-16 lg:grid-cols-2">
 						<section>
 							<h2
-								class="font-display mb-12 text-4xl font-black text-neutral-900 uppercase dark:text-neutral-100"
+								class="mb-12 font-display text-4xl font-black text-neutral-900 uppercase dark:text-neutral-100"
 							>
 								Work Experience
 							</h2>
@@ -367,13 +356,17 @@
 											class="absolute top-0 -left-[9px] h-4 w-4 border-2 border-neutral-900 bg-white dark:border-neutral-700 dark:bg-neutral-900"
 										></div>
 										<div class="mb-4">
-											<h3 class="font-display text-2xl font-bold text-neutral-900 dark:text-neutral-100">
+											<h3
+												class="font-display text-2xl font-bold text-neutral-900 dark:text-neutral-100"
+											>
 												{job.company}
 											</h3>
 											<div
 												class="mt-1 flex flex-wrap gap-x-4 gap-y-1 font-mono text-sm text-neutral-500 dark:text-neutral-400"
 											>
-												<span class="font-bold text-neutral-900 dark:text-neutral-100">{job.role}</span>
+												<span class="font-bold text-neutral-900 dark:text-neutral-100"
+													>{job.role}</span
+												>
 												<span>•</span>
 												<span>{job.date}</span>
 											</div>
@@ -392,7 +385,7 @@
 
 						<section>
 							<h2
-								class="font-display mb-12 text-4xl font-black text-neutral-900 uppercase dark:text-neutral-100"
+								class="mb-12 font-display text-4xl font-black text-neutral-900 uppercase dark:text-neutral-100"
 							>
 								Education
 							</h2>
@@ -405,7 +398,9 @@
 											class="mb-6 flex flex-col justify-between gap-2 sm:flex-row sm:items-start"
 										>
 											<div>
-												<h3 class="font-display text-xl font-bold text-neutral-900 dark:text-neutral-100">
+												<h3
+													class="font-display text-xl font-bold text-neutral-900 dark:text-neutral-100"
+												>
 													{edu.school}
 												</h3>
 												<p class="font-mono text-sm text-neutral-600 dark:text-neutral-400">
@@ -442,7 +437,7 @@
 								class="border-2 border-neutral-900 bg-white p-8 dark:border-neutral-700 dark:bg-neutral-900"
 							>
 								<h2
-									class="font-display mb-8 text-2xl font-bold text-neutral-900 uppercase dark:text-neutral-100"
+									class="mb-8 font-display text-2xl font-bold text-neutral-900 uppercase dark:text-neutral-100"
 								>
 									{category.name}
 								</h2>
@@ -465,7 +460,7 @@
 						class="border-2 border-neutral-900 bg-white p-12 dark:border-neutral-700 dark:bg-neutral-900"
 					>
 						<h2
-							class="font-display mb-8 text-3xl font-black text-neutral-900 uppercase dark:text-neutral-100"
+							class="mb-8 font-display text-3xl font-black text-neutral-900 uppercase dark:text-neutral-100"
 						>
 							Interests & Activities
 						</h2>
@@ -474,7 +469,8 @@
 								<li
 									class="flex items-start gap-3 font-mono text-sm text-neutral-800 dark:text-neutral-200"
 								>
-									<span class="mt-1.5 h-1.5 w-1.5 shrink-0 bg-neutral-900 dark:bg-neutral-400"></span>
+									<span class="mt-1.5 h-1.5 w-1.5 shrink-0 bg-neutral-900 dark:bg-neutral-400"
+									></span>
 									{interest}
 								</li>
 							{/each}

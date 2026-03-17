@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { Footer } from '$lib';
 	import type { PageData } from './$types';
 
 	let { data } = $props<{ data: PageData }>();
@@ -20,7 +19,7 @@
 			</div>
 
 			<h1
-				class="font-display mb-8 text-4xl leading-none font-black tracking-tighter text-neutral-900 uppercase sm:text-5xl md:text-7xl dark:text-white"
+				class="mb-8 font-display text-4xl leading-none font-black tracking-tighter text-neutral-900 uppercase sm:text-5xl md:text-7xl dark:text-white"
 			>
 				{data.meta.title}
 			</h1>
@@ -31,7 +30,7 @@
 		</header>
 
 		<article
-			class="prose-headings:font-display prose prose-base max-w-none prose-neutral dark:prose-invert prose-headings:tracking-tighter prose-headings:uppercase prose-p:font-sans prose-code:bg-neutral-100 prose-code:px-1 prose-code:py-0.5 prose-code:font-mono prose-code:before:content-none prose-code:after:content-none dark:prose-code:bg-neutral-900"
+			class="prose prose-base max-w-none prose-neutral dark:prose-invert prose-headings:font-display prose-headings:tracking-tighter prose-headings:uppercase prose-p:font-sans prose-code:bg-neutral-100 prose-code:px-1 prose-code:py-0.5 prose-code:font-mono prose-code:before:content-none prose-code:after:content-none dark:prose-code:bg-neutral-900"
 		>
 			{#if data.content}
 				{@const Content = data.content}

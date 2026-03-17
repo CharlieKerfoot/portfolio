@@ -12,7 +12,10 @@
 <svelte:head>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+		rel="stylesheet"
+	/>
 	<link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
 	<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
 	<link rel="shortcut icon" href="/favicon/favicon.ico" />
@@ -26,7 +29,7 @@
 <div class="fixed top-4 left-4 z-40 mix-blend-difference md:top-8 md:left-8">
 	<a
 		href="/"
-		class="inline-flex min-h-[44px] items-center font-mono text-lg font-bold tracking-tighter text-white transition-opacity hover:opacity-50 md:text-xl"
+		class="inline-flex min-h-11 items-center font-mono text-lg font-bold tracking-tighter text-white transition-opacity hover:opacity-50 md:text-xl"
 	>
 		CKERF
 	</a>
@@ -36,9 +39,21 @@
 <div
 	class="fixed top-4 right-4 z-40 flex gap-4 font-mono text-xs text-white mix-blend-difference md:top-8 md:right-8 md:gap-6 md:text-sm"
 >
-	<a href="/portfolio" class="inline-flex min-h-[44px] items-center decoration-2 underline-offset-4 hover:underline">WORK</a>
-	<a href="/blogs" class="inline-flex min-h-[44px] items-center decoration-2 underline-offset-4 hover:underline">THOUGHTS</a>
-	<a href="/resume" class="inline-flex min-h-[44px] items-center decoration-2 underline-offset-4 hover:underline">RESUME</a>
+	<a
+		href="/portfolio"
+		class="inline-flex min-h-11 items-center decoration-2 underline-offset-4 hover:underline"
+		>WORK</a
+	>
+	<a
+		href="/blogs"
+		class="inline-flex min-h-11 items-center decoration-2 underline-offset-4 hover:underline"
+		>THOUGHTS</a
+	>
+	<a
+		href="/resume"
+		class="inline-flex min-h-11 items-center decoration-2 underline-offset-4 hover:underline"
+		>RESUME</a
+	>
 </div>
 
 <!-- Bottom Left: Context -->
@@ -56,8 +71,6 @@
 	<ThemeToggle />
 </div>
 
-<main
-	class="relative min-h-screen w-full overflow-x-hidden px-8 pt-32 pb-16"
->
+<main class="relative min-h-screen w-full overflow-x-hidden px-8 pt-32 pb-16">
 	<slot />
 </main>

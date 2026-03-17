@@ -53,7 +53,7 @@
 
 					<div class="my-auto">
 						<h2
-							class="font-display mb-4 text-4xl leading-none font-bold tracking-tighter uppercase"
+							class="mb-4 font-display text-4xl leading-none font-bold tracking-tighter uppercase"
 						>
 							{post.title}
 						</h2>

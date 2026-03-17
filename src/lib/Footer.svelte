@@ -9,12 +9,7 @@
 		<div class="flex flex-col items-center justify-between gap-4 md:flex-row md:items-start">
 			<div class="text-center md:text-left">
 				<p class="text-lg font-semibold text-neutral-900 dark:text-white">Be Relentless.</p>
-				<p class="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
-					Please reach out at any of my socials.
-				</p>
-				<p class="mt-2 text-xs text-neutral-500 dark:text-neutral-500">
-					&copy; {year} Charlie Kerfoot. All rights reserved.
-				</p>
+				<p class="mt-1 text-sm text-neutral-600 dark:text-neutral-400">Feel free to reach out.</p>
 			</div>
 
 			<div class="flex gap-2">
