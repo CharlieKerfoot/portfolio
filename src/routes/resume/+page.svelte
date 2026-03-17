@@ -168,7 +168,7 @@
 				<!-- Left Side: Name & Bio -->
 				<div class="flex flex-col gap-6">
 					<h1
-						class="font-display text-6xl font-black tracking-tighter text-neutral-900 uppercase sm:text-7xl dark:text-white"
+						class="font-display text-6xl font-black tracking-tighter text-neutral-900 uppercase sm:text-7xl dark:text-neutral-100"
 					>
 						Charlie<br />Kerfoot
 					</h1>
@@ -179,7 +179,7 @@
 						shaping the future. Let's build the world that we want to live in. Check out my
 						<a
 							href="https://drive.google.com/file/d/1m3CGEv5d5jszNlEW3egCz0OiHodfZ9Vw/view?usp=sharing"
-							class="inline-flex items-center gap-1 text-neutral-900 underline decoration-2 underline-offset-3 hover:text-neutral-600 dark:text-white dark:hover:text-neutral-300"
+							class="inline-flex items-center gap-1 text-neutral-900 underline decoration-2 underline-offset-3 hover:text-neutral-600 dark:text-neutral-100 dark:hover:text-neutral-300"
 							target="_blank"
 						>
 							Formal Resume
@@ -188,12 +188,12 @@
 				</div>
 
 				<!-- Vertical Divider (Desktop only) -->
-				<div class="hidden h-full w-[2px] bg-neutral-900 lg:block dark:bg-white"></div>
+				<div class="hidden h-full w-[2px] bg-neutral-900 lg:block dark:bg-neutral-700"></div>
 
 				<!-- Right Side: Quote -->
 				<div class="flex flex-col justify-center">
 					<blockquote
-						class="font-display text-3xl leading-tight font-bold text-neutral-900 uppercase sm:text-4xl dark:text-white"
+						class="font-display text-3xl leading-tight font-bold text-neutral-900 uppercase sm:text-4xl dark:text-neutral-100"
 					>
 						"In the cosmic blink of an eye, I will become once again cosmic dust."
 					</blockquote>
@@ -213,8 +213,8 @@
 						onclick={() => (activeTab = tab)}
 						class="border-2 px-8 py-3 font-mono text-sm font-bold tracking-wider uppercase transition-all duration-200
                         {activeTab === tab
-							? 'border-neutral-900 bg-neutral-900 text-white dark:border-white dark:bg-white dark:text-neutral-900'
-							: 'border-neutral-900 bg-transparent text-neutral-900 hover:bg-neutral-900 hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-neutral-900'}"
+							? 'border-neutral-900 bg-neutral-900 text-white dark:border-neutral-500 dark:bg-neutral-200 dark:text-neutral-900'
+							: 'border-neutral-900 bg-transparent text-neutral-900 hover:bg-neutral-900 hover:text-white dark:border-neutral-600 dark:text-neutral-200 dark:hover:bg-neutral-200 dark:hover:text-neutral-900'}"
 					>
 						{tab}
 					</button>
@@ -238,10 +238,10 @@
 						<!-- Error state -->
 					{:else if projectsError}
 						<div
-							class="border-2 border-neutral-900 bg-white p-8 dark:border-white dark:bg-neutral-950"
+							class="border-2 border-neutral-900 bg-white p-8 dark:border-neutral-700 dark:bg-neutral-900"
 						>
 							<p
-								class="mb-4 font-mono text-sm font-bold text-neutral-900 uppercase dark:text-white"
+								class="mb-4 font-mono text-sm font-bold text-neutral-900 uppercase dark:text-neutral-100"
 							>
 								Failed to load projects
 							</p>
@@ -250,7 +250,7 @@
 							</p>
 							<button
 								onclick={fetchProjects}
-								class="border-2 border-neutral-900 px-6 py-2 font-mono text-xs font-bold uppercase transition-colors hover:bg-neutral-900 hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-neutral-900"
+								class="border-2 border-neutral-900 px-6 py-2 font-mono text-xs font-bold uppercase transition-colors hover:bg-neutral-900 hover:text-white dark:border-neutral-600 dark:text-neutral-200 dark:hover:bg-neutral-200 dark:hover:text-neutral-900"
 							>
 								Retry
 							</button>
@@ -266,12 +266,12 @@
 						<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
 							{#each projects as project}
 								<div
-									class="flex h-full flex-col justify-between border-2 border-neutral-900 bg-white p-6 transition-all hover:bg-neutral-50 dark:border-white dark:bg-neutral-950 dark:hover:bg-neutral-900"
+									class="flex h-full flex-col justify-between border-2 border-neutral-900 bg-white p-6 transition-all hover:bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-900 dark:hover:bg-neutral-900"
 								>
 									<div>
 										<div class="mb-4 flex items-start justify-between gap-2">
 											<h3
-												class="font-display text-2xl leading-tight font-bold text-neutral-900 dark:text-white"
+												class="font-display text-2xl leading-tight font-bold text-neutral-900 dark:text-neutral-100"
 											>
 												{project.title}
 											</h3>
@@ -298,7 +298,7 @@
 										<a
 											href={project.github}
 											target="_blank"
-											class="inline-flex flex-1 items-center justify-center gap-2 border-2 border-neutral-900 bg-transparent px-4 py-2 font-mono text-xs font-bold text-neutral-900 uppercase transition-colors hover:bg-neutral-900 hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-neutral-900"
+											class="inline-flex flex-1 items-center justify-center gap-2 border-2 border-neutral-900 bg-transparent px-4 py-2 font-mono text-xs font-bold text-neutral-900 uppercase transition-colors hover:bg-neutral-900 hover:text-white dark:border-neutral-600 dark:text-neutral-200 dark:hover:bg-neutral-200 dark:hover:text-neutral-900"
 										>
 											<svg
 												xmlns="http://www.w3.org/2000/svg"
@@ -321,7 +321,7 @@
 											<a
 												href={project.url}
 												target="_blank"
-												class="inline-flex flex-1 items-center justify-center gap-2 border-2 border-neutral-900 bg-neutral-900 px-4 py-2 font-mono text-xs font-bold text-white uppercase transition-colors hover:bg-neutral-800 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200"
+												class="inline-flex flex-1 items-center justify-center gap-2 border-2 border-neutral-900 bg-neutral-900 px-4 py-2 font-mono text-xs font-bold text-white uppercase transition-colors hover:bg-neutral-800 dark:bg-neutral-200 dark:text-neutral-900 dark:hover:bg-neutral-300"
 											>
 												<svg
 													xmlns="http://www.w3.org/2000/svg"
@@ -352,24 +352,24 @@
 					<div class="grid gap-16 lg:grid-cols-2">
 						<section>
 							<h2
-								class="font-display mb-12 text-4xl font-black text-neutral-900 uppercase dark:text-white"
+								class="font-display mb-12 text-4xl font-black text-neutral-900 uppercase dark:text-neutral-100"
 							>
 								Work Experience
 							</h2>
 							<div class="space-y-12">
 								{#each experience as job}
-									<div class="relative border-l-2 border-neutral-900 pl-8 dark:border-white">
+									<div class="relative border-l-2 border-neutral-900 pl-8 dark:border-neutral-700">
 										<div
-											class="absolute top-0 -left-[9px] h-4 w-4 border-2 border-neutral-900 bg-white dark:border-white dark:bg-neutral-950"
+											class="absolute top-0 -left-[9px] h-4 w-4 border-2 border-neutral-900 bg-white dark:border-neutral-700 dark:bg-neutral-900"
 										></div>
 										<div class="mb-4">
-											<h3 class="font-display text-2xl font-bold text-neutral-900 dark:text-white">
+											<h3 class="font-display text-2xl font-bold text-neutral-900 dark:text-neutral-100">
 												{job.company}
 											</h3>
 											<div
 												class="mt-1 flex flex-wrap gap-x-4 gap-y-1 font-mono text-sm text-neutral-500 dark:text-neutral-400"
 											>
-												<span class="font-bold text-neutral-900 dark:text-white">{job.role}</span>
+												<span class="font-bold text-neutral-900 dark:text-neutral-100">{job.role}</span>
 												<span>•</span>
 												<span>{job.date}</span>
 											</div>
@@ -388,20 +388,20 @@
 
 						<section>
 							<h2
-								class="font-display mb-12 text-4xl font-black text-neutral-900 uppercase dark:text-white"
+								class="font-display mb-12 text-4xl font-black text-neutral-900 uppercase dark:text-neutral-100"
 							>
 								Education
 							</h2>
 							<div class="space-y-8">
 								{#each education as edu}
 									<div
-										class="border-2 border-neutral-900 bg-white p-8 dark:border-white dark:bg-neutral-950"
+										class="border-2 border-neutral-900 bg-white p-8 dark:border-neutral-700 dark:bg-neutral-900"
 									>
 										<div
 											class="mb-6 flex flex-col justify-between gap-2 sm:flex-row sm:items-start"
 										>
 											<div>
-												<h3 class="font-display text-xl font-bold text-neutral-900 dark:text-white">
+												<h3 class="font-display text-xl font-bold text-neutral-900 dark:text-neutral-100">
 													{edu.school}
 												</h3>
 												<p class="font-mono text-sm text-neutral-600 dark:text-neutral-400">
@@ -435,17 +435,17 @@
 					<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
 						{#each skillCategories as category}
 							<div
-								class="border-2 border-neutral-900 bg-white p-8 dark:border-white dark:bg-neutral-950"
+								class="border-2 border-neutral-900 bg-white p-8 dark:border-neutral-700 dark:bg-neutral-900"
 							>
 								<h2
-									class="font-display mb-8 text-2xl font-bold text-neutral-900 uppercase dark:text-white"
+									class="font-display mb-8 text-2xl font-bold text-neutral-900 uppercase dark:text-neutral-100"
 								>
 									{category.name}
 								</h2>
 								<div class="flex flex-wrap gap-3">
 									{#each category.skills as skill}
 										<span
-											class="border border-neutral-900 px-3 py-1.5 font-mono text-sm font-bold text-neutral-900 transition-colors hover:bg-neutral-900 hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-neutral-900"
+											class="border border-neutral-900 px-3 py-1.5 font-mono text-sm font-bold text-neutral-900 transition-colors hover:bg-neutral-900 hover:text-white dark:border-neutral-600 dark:text-neutral-200 dark:hover:bg-neutral-200 dark:hover:text-neutral-900"
 										>
 											{skill}
 										</span>
@@ -458,10 +458,10 @@
 			{:else if activeTab === 'Interests'}
 				<div in:fly={{ y: 20, duration: 300, delay: 100 }} out:fade={{ duration: 100 }}>
 					<div
-						class="border-2 border-neutral-900 bg-white p-12 dark:border-white dark:bg-neutral-950"
+						class="border-2 border-neutral-900 bg-white p-12 dark:border-neutral-700 dark:bg-neutral-900"
 					>
 						<h2
-							class="font-display mb-8 text-3xl font-black text-neutral-900 uppercase dark:text-white"
+							class="font-display mb-8 text-3xl font-black text-neutral-900 uppercase dark:text-neutral-100"
 						>
 							Interests & Activities
 						</h2>
@@ -470,7 +470,7 @@
 								<li
 									class="flex items-start gap-3 font-mono text-sm text-neutral-800 dark:text-neutral-200"
 								>
-									<span class="mt-1.5 h-1.5 w-1.5 shrink-0 bg-neutral-900 dark:bg-white"></span>
+									<span class="mt-1.5 h-1.5 w-1.5 shrink-0 bg-neutral-900 dark:bg-neutral-400"></span>
 									{interest}
 								</li>
 							{/each}

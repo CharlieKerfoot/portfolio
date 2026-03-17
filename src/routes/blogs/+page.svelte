@@ -18,7 +18,7 @@
 
 <div class="min-h-screen bg-neutral-50 px-4 pt-24 pb-12 sm:px-8 md:pt-32 dark:bg-neutral-950">
 	<div class="mx-auto max-w-7xl">
-		<header class="mb-16 border-b-4 border-neutral-900 pb-8 md:mb-24 dark:border-white">
+		<header class="mb-16 border-b-4 border-neutral-900 pb-8 md:mb-24 dark:border-neutral-700">
 			<h1
 				class="text-5xl font-black tracking-tighter text-neutral-900 uppercase md:text-8xl dark:text-white"
 			>
@@ -33,19 +33,19 @@
 						type="text"
 						bind:value={searchQuery}
 						placeholder="Search posts..."
-						class="w-full border-2 border-neutral-900 bg-transparent px-4 py-3 font-mono text-sm uppercase placeholder-neutral-500 focus:bg-neutral-900 focus:text-white focus:outline-none dark:border-white dark:placeholder-neutral-500 dark:focus:bg-white dark:focus:text-neutral-900"
+						class="w-full border-2 border-neutral-900 bg-transparent px-4 py-3 font-mono text-sm uppercase placeholder-neutral-500 focus:bg-neutral-900 focus:text-white focus:outline-none dark:border-neutral-700 dark:placeholder-neutral-500 dark:focus:bg-neutral-100 dark:focus:text-neutral-900"
 					/>
 				</div>
 			</div>
 		</header>
 
 		<div
-			class="grid grid-cols-1 gap-px border-2 border-neutral-900 bg-neutral-900 sm:grid-cols-2 lg:grid-cols-3 dark:border-white dark:bg-white"
+			class="grid grid-cols-1 gap-px border-2 border-neutral-900 bg-neutral-900 sm:grid-cols-2 lg:grid-cols-3 dark:border-neutral-700 dark:bg-neutral-700"
 		>
 			{#each searchQuery ? filteredPosts : data.posts as post}
 				<a
 					href="/blogs/{post.slug}"
-					class="group relative flex h-[400px] flex-col justify-between bg-neutral-50 p-8 transition-colors hover:bg-neutral-900 hover:text-white dark:bg-neutral-950 dark:hover:bg-white dark:hover:text-neutral-900"
+					class="group relative flex h-[400px] flex-col justify-between bg-neutral-50 p-8 transition-colors hover:bg-neutral-900 hover:text-white dark:bg-neutral-900 dark:hover:bg-neutral-100 dark:hover:text-neutral-900"
 				>
 					<div class="flex justify-between border-b border-current pb-4 opacity-50">
 						<time class="font-mono text-xs">{post.date}</time>
