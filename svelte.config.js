@@ -12,7 +12,7 @@ const config = {
 			extensions: ['.md', '.svx']
 		})
 	],
-	kit: { adapter: adapter() },
+	kit: { adapter: adapter({ runtime: 'nodejs22.x' }) },
 	extensions: ['.svelte', '.svx', '.md']
 };
 
