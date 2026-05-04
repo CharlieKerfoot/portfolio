@@ -2,3 +2,5 @@
 export { default as StartNav } from './StartNav.svelte';
 export { default as Footer } from './Footer.svelte';
 export { default as ThemeToggle } from './ThemeToggle.svelte';
+export { default as Epigraph } from './Epigraph.svelte';
+export { default as Footnote } from './Footnote.svelte';
