@@ -1,13 +1,8 @@
 # Blogs, Projects, Resume
 
-My website containing my blog posts, projects/experiments, and a resume page. I want to start writing a blog post about every month on all things life, philosophy, and ML.
+My website containing my blog posts, projects/experiments, and a resume page. Writing a blog about every month on random reflections.
 
 See it here: https://charliekerfoot.com
-
-## TODO
-
-- [x] Write 1+ blog
-- [ ] Build out projects page
 
 ## Contact Me
 
