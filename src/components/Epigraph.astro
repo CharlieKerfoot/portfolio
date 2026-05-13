@@ -1,0 +1,18 @@
+---
+interface Props {
+  cite?: string;
+  source?: string;
+}
+const { cite, source } = Astro.props;
+---
+<figure class="epigraph">
+  <blockquote>
+    <slot />
+  </blockquote>
+  {(cite || source) && (
+    <figcaption>
+      {cite && <>&mdash; {cite}</>}
+      {source && (cite ? <>, <cite>{source}</cite></> : <>&mdash; <cite>{source}</cite></>)}
+    </figcaption>
+  )}
+</figure>

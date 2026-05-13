@@ -1,0 +1,10 @@
+---
+interface Props {
+  n: number | string;
+}
+const { n } = Astro.props;
+---
+<span class="footnote">
+  <sup role="note" aria-label={`Footnote ${n}`}>{n}</sup>
+  <span class="tooltip" role="tooltip"><slot /></span>
+</span>

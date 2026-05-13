@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  const tagMap = new Map<string, typeof posts>();
+  for (const post of posts) {
+    for (const tag of post.data.tags) {
+      const list = tagMap.get(tag) ?? [];
+      list.push(post);
+      tagMap.set(tag, list);
+    }
+  }
+  return Array.from(tagMap.entries()).map(([tag, postsForTag]) => ({
+    params: { tag },
+    props: {
+      tag,
+      posts: postsForTag.sort(
+        (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+      )
+    }
+  }));
+}
+
+const { tag, posts } = Astro.props;
+const fmt = (d: Date) => d.toISOString().slice(0, 10);
+---
+<Base title={`#${tag} — Charlie Kerfoot`}>
+  <p class="nav"><a href="/blogs/">&larr; Index</a></p>
+
+  <h1 class="title">#{tag}</h1>
+  <p>{posts.length} {posts.length === 1 ? 'post' : 'posts'} tagged <code>{tag}</code>.</p>
+
+  <ul class="posts">
+    {posts.map((post) => (
+      <li>
+        <a href={`/blogs/${post.id}/`}>{post.data.title}</a>
+        <span class="date">&mdash; {fmt(post.data.date)}</span>
+        {post.data.description && <div class="desc">{post.data.description}</div>}
+      </li>
+    ))}
+  </ul>
+</Base>
