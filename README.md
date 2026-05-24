@@ -4,12 +4,7 @@ My website containing my blog posts, projects/experiments, and a resume page. I 
 
 See it here: https://charliekerfoot.com
 
-## TODO
-
-- [x] Write 1+ blog
-- [ ] Build out projects page
-
 ## Contact Me
 
 Feel free to shoot me an email at charliekerfoot@gmail.com. \
-I am also on [LinkedIn](https://linkedin.com/in/ckerf) and [X](https://x.com/ckerf_24).
+I am also on [X](https://x.com/ckerf_24).
