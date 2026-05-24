@@ -49,13 +49,6 @@ hr.rule { border: 0; border-top: 1px solid #000; margin: 18px 0; }
 .posts li:last-child { border-bottom: 0; }
 .posts .date { color: #555; font-size: 12px; }
 .posts .desc { margin-top: 4px; color: #333; font-size: 12px; }
-.posts .tags {
-  margin-top: 4px;
-  font-size: 11px;
-  color: #777;
-}
-.posts .tags a { color: #777; text-decoration: none; }
-.posts .tags a:hover { color: #cc0000; text-decoration: underline; }
 
 /* Blog post */
 .post-head {
@@ -81,14 +74,6 @@ hr.rule { border: 0; border-top: 1px solid #000; margin: 18px 0; }
   color: #333;
   margin: 0 0 8px;
 }
-.post-tags {
-  font-size: 11px;
-  color: #777;
-  margin: 0 0 24px;
-}
-.post-tags a { color: #777; text-decoration: none; }
-.post-tags a:hover { color: #cc0000; text-decoration: underline; }
-
 .post p { margin: 0 0 14px; }
 .post h2 { font-size: 16px; margin: 28px 0 10px; }
 .post h3 { font-size: 14px; margin: 22px 0 8px; }

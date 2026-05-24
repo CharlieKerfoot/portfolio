@@ -2,7 +2,6 @@
 title: "A Philosophy"
 description: "How to Live"
 date: 2026-03-06
-tags: ["life", "meaning", "philosophy"]
 ---
 
 1. Conformity is a wasted life.

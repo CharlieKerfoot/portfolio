@@ -20,16 +20,6 @@ const fmt = (d: Date) => d.toISOString().slice(0, 10);
         <a href={`/blogs/${post.id}/`}>{post.data.title}</a>
         <span class="date">&mdash; {fmt(post.data.date)}</span>
         {post.data.description && <div class="desc">{post.data.description}</div>}
-        {post.data.tags.length > 0 && (
-          <div class="tags">
-            {post.data.tags.map((tag, i) => (
-              <>
-                {i > 0 && ' · '}
-                <a href={`/tags/${tag}/`}>#{tag}</a>
-              </>
-            ))}
-          </div>
-        )}
       </li>
     ))}
   </ul>
